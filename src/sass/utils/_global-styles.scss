@@ -1,0 +1,6 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    @include font(normal, 12px, 500, 16px, 0.04em);
+    color: $primary-text-color; 
+    background-color: $background-main-color;
+}
