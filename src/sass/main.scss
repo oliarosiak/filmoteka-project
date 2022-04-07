@@ -8,7 +8,8 @@
 @import './utils/mixins';
 
 // Підключення файлів стилів для перевикористовуваних елементів
-
+@import './components/wrapper';
+@import './components/container';
 
 // Підключення файлів стилів для основних компонентів сторінки
 
