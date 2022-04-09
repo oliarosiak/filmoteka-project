@@ -8,10 +8,13 @@
 @import './utils/mixins';
 @import './utils/reset';
 @import './utils/global-styles';
+@import './utils/hidden';
 
 // Підключення файлів стилів для перевикористовуваних елементів
 @import './components/wrapper';
 @import './components/container';
+@import './components/backdrop';
 
 // Підключення файлів стилів для основних компонентів сторінки
 @import './layout/header';
+@import './layout/modal-team';
