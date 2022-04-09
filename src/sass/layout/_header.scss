@@ -1,0 +1,44 @@
+.header {
+    width: 100%;
+    background-image: url(../images/header/mobile_home_bg-2x.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
+}
+
+.header__logo{
+height: 24px;
+width: 24px;
+margin-right: 112px;
+}
+
+.header__navigation--home-btn{
+    margin-right: 40px;
+    line-height: 14px;
+    background-color: transparent;
+    color: $secondary-text-color;
+    text-transform: uppercase;
+
+    // @include font($lh: 14px);
+}
+
+.header__navigation--library-btn{
+    line-height: 14px;
+    background-color: transparent;
+    color: $secondary-text-color;
+    text-transform: uppercase;
+}
+
+
+
+.header__navigation {
+    display: flex;
+    align-items: center;
+}
