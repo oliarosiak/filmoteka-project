@@ -10,6 +10,5 @@
 // центрований флекс - @include centeredFlex($type: flex);
 @mixin centeredFlex($type: flex) {
     display: $type;
-    justify-content: center;
     align-items: center;
 }

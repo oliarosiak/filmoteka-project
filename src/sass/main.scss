@@ -6,10 +6,12 @@
 // Підключення змінних і глобальних стилів
 @import './utils/vars';
 @import './utils/mixins';
+@import './utils/reset';
+@import './utils/global-styles';
 
 // Підключення файлів стилів для перевикористовуваних елементів
 @import './components/wrapper';
 @import './components/container';
 
 // Підключення файлів стилів для основних компонентів сторінки
-
+@import './layout/header';
