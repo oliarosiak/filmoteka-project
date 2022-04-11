@@ -1,5 +1,4 @@
 import { refs } from './refs';
-console.log(refs);
 
 refs.openRegisterForm.addEventListener('click', () => {
   refs.registerForm.classList.toggle('is-hidden');

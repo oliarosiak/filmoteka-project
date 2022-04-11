@@ -6,6 +6,7 @@ export const refs = {
   openSignInForm: document.querySelector('#openSignInForm'),
   signInForm: document.querySelector('#signInForm'),
   signInModal__closebtn: document.querySelector('.signInModal__closebtn'),
+  signOutBtn: document.querySelector('#signOutBtn'),
   // ==========
   openModalTeamBtn: document.querySelector('.open__modal-team'),
   closeModalTeamBtn: document.querySelector('.close__modal-team'),
