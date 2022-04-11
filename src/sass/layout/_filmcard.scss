@@ -1,0 +1,73 @@
+.card {
+    
+    @media screen and (min-width: 320px) {
+        width: 280px;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 336px;
+        margin-left: 16px;
+        margin-right: 16px;
+        margin-bottom: 32px;
+    }
+    @media screen and (min-width: 1024px) {
+        width: 308px;
+        margin-left: 9px;
+        margin-right: 9px;
+    }
+
+}
+
+.card__link {
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    height: auto;
+}
+.card__img {
+    @media screen and (min-width: 320px) {
+        width: 280px; 
+        height: 398px; 
+        border-radius: 5px;
+    }
+    @media screen and (min-width: 768px) {
+        width: 336px;  
+        height: 455px; 
+        border-radius: 5px;
+    }
+    @media screen and (min-width: 1024px) {
+        width: 308px; 
+        height: 449px; 
+        border-radius: 5px;
+    }
+}
+
+.card__information {
+    margin-top: 8px;
+}
+
+.card__name {
+    font-size: 12px;
+    font-weight: inherit;
+    color: $primary-text-color;
+    text-transform: uppercase;
+}
+
+.card__inf {
+    display: flex;
+    align-items: center;
+}
+
+.card__genre {
+    color: $primary-accent-color;
+}
+
+.card__rating {
+    width: 36px;
+    border-radius: 5px;
+    text-align: center;
+    color: $primary-background-color;
+    background: $secondary-accent-color;
+
+    margin-left: 12px
+}
