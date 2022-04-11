@@ -120,4 +120,4 @@ var t,e=arguments[3];!function(e,i){"function"==typeof t&&t.amd?t([],function(){
 },{"./refs":"VyiV"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=u(require("./api/fetch"));require("./js/pagination");var r=require("./js/refs"),s=require("./js/team-markup");function u(e){return e&&e.__esModule?e:{default:e}}require("./js/authFirebase"),require("./js/authModal");
 },{"./sass/main.scss":"clu1","./api/fetch":"diwC","./js/pagination":"o8lo","./js/refs":"VyiV","./js/team-markup":"EdNd","./js/authFirebase":"w9Hs","./js/authModal":"AUp6"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.46d9302d.js.map
+//# sourceMappingURL=/filmoteka-project/src.ca5cb72a.js.map
