@@ -8,7 +8,7 @@
     transform: translate(-50%, -50%) scale(1);
     transition: transform $primary-animation,
     opacity $primary-animation;
-    padding: 48px 20px 40px 20px;
+    padding: 8px 20px 40px 20px;
     background-color: $primary-background-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
@@ -18,33 +18,24 @@
 
     @media screen and (min-width: 768px) {
         width: 704px;
-        padding: 40px 36px;
+        padding: 8px 36px 40px 36px;
     }
 
     @media screen and (min-width: 1024px) {
         width: 800px;
-        padding: 40px 16px;
-    }
-}
-
-.backdrop {
-    &.is-hidden {
-        .modal {
-            transform: translate(-50%, 0) scale(0.9);
-            opacity: 0;
-        }
+        padding: 8px 16px 40px 16px;
     }
 }
 
 .close__modal-team {
-    position: absolute;
-    @include centeredFlex($type: flex);
+    position: sticky;
 
-    top: 8px;
-    right: 8px;
+    top: 0;
+    left: 100%;
+    z-index: 2;
     width: 30px;
     height: 30px;
-
+    
     background-color: transparent;
     stroke: $primary-text-color;
 
@@ -58,11 +49,13 @@
 }
 
 .team {
+    margin-top: 10px;
     margin-bottom: calc(-1 * 32px);
 
     @media screen and (min-width: 768px) {
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: 2px;
         margin-left: calc(-1 * 32px);
     }
 
@@ -151,11 +144,10 @@
 }
 
 .socials__icon {
-    transition: fill $primary-animation, transform $primary-animation;
+    transition: transform $primary-animation;
 
     .socials__link:hover &,
     .socials__link:focus & {
-        fill: $primary-background-color;
         transform: scale(1.1);
     }
 }
