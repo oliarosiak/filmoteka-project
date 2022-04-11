@@ -1,15 +1,17 @@
 .card {
-    
+
     @media screen and (min-width: 320px) {
         width: 280px;
         margin-bottom: 20px;
     }
+
     @media screen and (min-width: 768px) {
         width: 336px;
         margin-left: 16px;
         margin-right: 16px;
         margin-bottom: 32px;
     }
+
     @media screen and (min-width: 1024px) {
         width: 308px;
         margin-left: 9px;
@@ -23,21 +25,35 @@
     display: block;
     width: 100%;
     height: auto;
+
+    border-radius: 5px;
+    transition-property: box-shadow;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-delay: 0.05s;
+
+    &:focus,
+    &:hover {
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.12), 2px 4px 4px rgba(0, 0, 0, 0.06), 3px 4px 5px rgba(0, 0, 0, 0.16);
+    }
 }
+
 .card__img {
     @media screen and (min-width: 320px) {
-        width: 280px; 
-        height: 398px; 
+        width: 280px;
+        height: 398px;
         border-radius: 5px;
     }
+
     @media screen and (min-width: 768px) {
-        width: 336px;  
-        height: 455px; 
+        width: 336px;
+        height: 455px;
         border-radius: 5px;
     }
+
     @media screen and (min-width: 1024px) {
-        width: 308px; 
-        height: 449px; 
+        width: 308px;
+        height: 449px;
         border-radius: 5px;
     }
 }
