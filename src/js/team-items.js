@@ -10,7 +10,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Protashchuk.jpg',
     firstName: 'Stanislav',
     secondName: 'Protashchuk',
     position: 'Scrum Master',

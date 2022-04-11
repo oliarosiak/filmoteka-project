@@ -11,12 +11,12 @@ export const teamMarkup = teamItems
                         <ul class="team__socials">
                             <li class="socials__item">
                                 <a href="${github}" class="socials__link">
-                                    <img class="socials__icon" src="https://cdn-icons.flaticon.com/png/512/3128/premium/3128308.png?token=exp=1649663560~hmac=d2b89928e15ca3508d41ee7005c2bd26" width="25" height="25">
+                                    <img class="socials__icon" src="https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/icon-github.png" width="25" height="25">
                                 </a>
                             </li>
                             <li class="socials__item">
                                 <a href="${linkedin}" class="socials__link">
-                                    <img class="socials__icon" src="https://cdn-icons.flaticon.com/png/512/3128/premium/3128219.png?token=exp=1649663615~hmac=b2389583f869ac8a7948edbc658541ed" width="25" height="25">
+                                    <img class="socials__icon" src="https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/icon-linkedin.png" width="25" height="25">
                                 </a>
                             </li>
                         </ul>

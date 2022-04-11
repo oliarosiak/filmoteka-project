@@ -17,5 +17,6 @@ function toggleModalTeam() {
 function removeModalTeam(e) {
   if (e.target === refs.modalTeam) {
     refs.modalTeam.classList.add('is-hidden');
+    refs.teamContainer.innerHTML = '';
   }
 }
