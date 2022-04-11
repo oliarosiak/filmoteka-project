@@ -1,3 +1,4 @@
+import { refs } from './refs';
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
 import {
@@ -25,5 +26,3 @@ export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
 const database = getDatabase(app);
-
-console.log(database);
