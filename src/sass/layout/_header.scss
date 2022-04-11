@@ -1,205 +1,189 @@
 .header {
-    max-width: 320px;
- 
-    background-image: linear-gradient(to right,
-        rgba(0,
-        0,
-        0,
-        0.56),
-        rgba(0,
-        0,
-        0,
-        0.56)),
+  max-width: 320px;
+
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
     url(../images/header/mobile_home_bg-2x.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 
-    @media screen and (min-width: 768px) {
-        max-width: 768px;
-        
-        background-image: linear-gradient(to right,
-            rgba(0,
-                0,
-                0,
-                0.56),
-            rgba(0,
-                0,
-                0,
-                0.56)),
-        url(../images/header/tablet_home_bg-2x.jpg);
-    }
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
 
-        @media screen and (min-width: 1024px) {
-            max-width: 1024px;
-        
-            background-image: linear-gradient(to right,
-                    rgba(0,
-                        0,
-                        0,
-                        0.56),
-                    rgba(0,
-                        0,
-                        0,
-                        0.56)),
-                url(../images/header/desktop_home_bg-2x.jpg);
-}
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/tablet_home_bg-2x.jpg);
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1024px;
+
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+      url(../images/header/desktop_home_bg-2x.jpg);
+  }
 }
 
-.header__wrapper{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 44px;
+  margin-bottom: 60px;
+
+  @media screen and (min-width: 768px) {
+    justify-content: flex-end;
     margin-top: 40px;
-    margin-bottom: 54px;
-
-    @media screen and (min-width: 768px) {
-        justify-content: flex-end;
-        margin-bottom: 40px;
-    }
+    margin-bottom: 40px;
+  }
 }
 
-.header__logo{
-background-color: transparent;
+.header__logo {
+  background-color: transparent;
 
-    @media screen and (min-width: 768px) {
-        margin-right: auto;
-    }
+  @media screen and (min-width: 768px) {
+    margin-right: auto;
+  }
 }
 
-.header__logo--img{
-    stroke: #818181;
-    height: 24px;                           
-    width: 24px;
+.header__logo--img {
+  stroke: #818181;
+  height: 24px;
+  width: 24px;
 
-        @media screen and (min-width: 768px) {
-            margin-right: 8px;
-        }
+  @media screen and (min-width: 768px) {
+    margin-right: 8px;
+  }
 
-                @media screen and (min-width: 1024px) {
-                    margin-right: 10px;
-                }
+  @media screen and (min-width: 1024px) {
+    margin-right: 10px;
+  }
 }
 
 .header__logo:hover .header__logo--img,
-.header__logo:focus .header__logo--img{
-    stroke: $primary-accent-color;
+.header__logo:focus .header__logo--img {
+  stroke: $primary-accent-color;
 }
 
-.header__title{
-display: none;
+.header__title {
+  display: none;
 
-@media screen and (min-width: 768px) {
+  @media screen and (min-width: 768px) {
     display: inline;
-        @include font(normal, 30px, 500, 35px, normal);
-        background-color: transparent;
-        color: $secondary-text-color;
-        text-transform: capitalize;
-}
+    @include font(normal, 30px, 500, 35px, normal);
+    background-color: transparent;
+    color: $secondary-text-color;
+    text-transform: capitalize;
+  }
 }
 
 .header__title:hover,
 .header__title:focus {
-    color: $primary-accent-color;
+  color: $primary-accent-color;
 }
 
 .header__navigation {
-    display: flex;
-    align-items: center;
-
-    @media screen and (min-width: 768px) {
-        margin-right: 40px;
-    }
+  display: flex;
+  align-items: center;
 }
 
-.header__navigation--home-btn{
-    margin-right: 40px;
-    @include font(normal, 12px, 500, 14px, normal);
-    background-color: transparent;
-    color: $secondary-text-color;
-    text-transform: uppercase;
+.header__navigation--home-btn {
+  margin-right: 40px;
+  @include font(normal, 12px, 500, 14px, normal);
+  background-color: transparent;
+  color: $secondary-text-color;
+  text-transform: uppercase;
 }
 
 .header__navigation--home-btn:hover,
-.header__navigation--home-btn:focus{
-    color: $primary-accent-color;
+.header__navigation--home-btn:focus {
+  color: $primary-accent-color;
 }
 
-.header__navigation--library-btn{
-@include font(normal, 12px, 500, 14px, normal);
-    background-color: transparent;
-    color: $secondary-text-color;
-    text-transform: uppercase;
+.header__navigation--library-btn {
+  @include font(normal, 12px, 500, 14px, normal);
+  background-color: transparent;
+  color: $secondary-text-color;
+  text-transform: uppercase;
 }
 
 .header__navigation--library-btn:hover,
 .header__navigation--library-btn:focus {
-    color: $primary-accent-color;
+  color: $primary-accent-color;
 }
 
-.header__autorisation-btn{
-    @include font(normal, 12px, 500, 14px, normal);
-    background-color: transparent;
-    color: $secondary-text-color;
-    text-transform: uppercase;
+.header__autorisation-btn {
+  @include font(normal, 12px, 500, 14px, normal);
+  background-color: transparent;
+  color: $secondary-text-color;
+  text-transform: uppercase;
 }
 
 .header__autorisation-btn:hover,
 .header__autorisation-btn:focus {
-    color: $primary-accent-color;
+  color: $primary-accent-color;
 }
 
-.current{
-    border-bottom: 3px solid;
-    border-color: $primary-accent-color;
+.current {
+  border-bottom: 3px solid;
+  border-color: $primary-accent-color;
 }
 
-.header__form{
-    position: relative;
-    display: flex;
-    border-bottom: 0.5px solid $secondary-background-color;
-    margin-bottom: 92px;
+.header__form {
+  position: relative;
+  display: flex;
+  border-bottom: 0.5px solid $secondary-background-color;
+  // margin-bottom: 92px;
 
-    @media screen and (min-width:768px) {
-        width: 336px;
-margin: 0 auto 80px;
-        
-    }
+  @media screen and (min-width: 768px) {
+    width: 336px;
+    margin: 0 auto;
+  }
 }
 
-.header__form--input{
-    width: 268.5px;
-    background-color: transparent;
-    border: none;
-    @include font(normal, 14px, 400, 16px, normal);
-    color: $secondary-text-color;
+.header__form--input {
+  width: 268.5px;
+  background-color: transparent;
+  border: none;
+  @include font(normal, 14px, 400, 16px, normal);
+  color: $secondary-text-color;
 
-        @media screen and (min-width:768px) {
-            width: 324px;
-}
+  @media screen and (min-width: 768px) {
+    width: 324px;
+  }
 }
 
-.header__form--input:focus{
-    outline: none;
+.header__form--input:focus {
+  outline: none;
 }
 
 .header__form--input:focus::placeholder {
-color: transparent;
+  color: transparent;
 }
 
-.header__form--input::placeholder{
-    @include font(normal, 14px, 400, 16px, normal);
-    color: $secondary-text-color; 
+.header__form--input::placeholder {
+  @include font(normal, 14px, 400, 16px, normal);
+  color: $secondary-text-color;
 }
 
-.header__form--button{
-    background-color: transparent;
+.header__form--button {
+  background-color: transparent;
 }
 
-.header__form--img{
-    width: 12px;
-    height: 12px;
+.header__form--img {
+  width: 12px;
+  height: 12px;
 }
 
+.auth {
+  margin-top: 46px;
+}
 
-
+.auth__list {
+  display: flex;
+  justify-content: flex-end;
+}
+.auth__list-item {
+  padding: 10px 0;
+}
+.auth__list-item:nth-child(2) {
+  margin-left: 40px;
+}

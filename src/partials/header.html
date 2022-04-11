@@ -1,25 +1,54 @@
 <header class="header">
-    <div class="container">
-        <div class="header__wrapper">
-        <button class="header__logo" type="button">
-            <svg class="header__logo--img">
-                <use href="./images/sprite.svg#icon-film"></use>
-            </svg>
-            <span class="header__title">filmoteka</span>
-        </button>
-        <nav class="header__navigation">
-            <button class="header__navigation--home-btn current" type="button">home</button>
-            <button class="header__navigation--library-btn" type="button">my library</button>
-        </nav>
-        <button class="header__autorisation-btn" type="button">sign in</button>
-        </div>
-        <form class="header__form">
-            <input class="header__form--input" type="text" name="searchQuery" autocomplete="off" placeholder="Поиск фильмов">
-            <button class="header__form--button" type="submit">
-                <svg class="header__form--img">
-                    <use href="./images/sprite.svg#icon-search"></use>
-                </svg>
-            </button>
-        </form>
+  <div class="container">
+    <div class="header__wrapper">
+      <button class="header__logo" type="button">
+        <svg class="header__logo--img">
+          <use href="./images/sprite.svg#icon-film"></use>
+        </svg>
+        <span class="header__title">filmoteka</span>
+      </button>
+      <nav class="header__navigation">
+        <button class="header__navigation--home-btn current" type="button">home</button>
+        <button class="header__navigation--library-btn" type="button">my library</button>
+      </nav>
     </div>
+    <form class="header__form">
+      <input
+        class="header__form--input"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Поиск фильмов"
+      />
+      <button class="header__form--button" type="submit">
+        <svg class="header__form--img">
+          <use href="./images/sprite.svg#icon-search"></use>
+        </svg>
+      </button>
+    </form>
+    <div class="auth">
+      <ul class="auth__list">
+        <li class="auth__list-item">
+          <button type="submit" id="signIn" class="header__autorisation-btn" type="button">
+            sign in
+          </button>
+        </li>
+        <li class="auth__list-item">
+          <button type="submit" id="signUp" class="header__autorisation-btn" type="button">
+            sign up
+          </button>
+        </li>
+        <li class="auth__list-item">
+          <button
+            type="button"
+            id="signOut"
+            class="header__autorisation-btn visually-hidden"
+            type="button"
+          >
+            sign out
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
 </header>
