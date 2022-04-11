@@ -7,9 +7,9 @@
     letter-spacing: $ls;
 }
 
-// центрований флекс - @include flex-center($type: flex);
-@mixin centered-flex($type: flex) {
+// центрований флекс - @include centeredFlex($type: flex);
+@mixin centeredFlex($type: flex) {
     display: $type;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }

@@ -1,0 +1,43 @@
+<div id="registerForm" class="backdrop is-hidden">
+  <form class="register__form">
+    <input
+      class="register__form-input"
+      type="email"
+      id="registerEmail"
+      placeholder="Email"
+      required
+    />
+    <input
+      class="register__form-input"
+      type="password"
+      id="registerPassword"
+      placeholder="Password"
+      required
+    />
+    <button type="submit" id="signUp" class="register__form-btn">sign up</button>
+    <button class="registerModal__closebtn" type="button" aria-label="закриття модального вікна">
+      <svg width="18" height="18" class="modal__closeicon">
+        <use href="/images/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+  </form>
+</div>
+
+<div id="signInForm" class="backdrop is-hidden">
+  <form class="signIn__form">
+    <input class="signIn__form-input" type="email" id="signInEmail" placeholder="Email" required />
+    <input
+      class="signIn__form-input"
+      type="password"
+      id="signInPassword"
+      placeholder="Password"
+      required
+    />
+    <button type="submit" id="signIn" class="signIn__form-btn">sign in</button>
+    <button class="signInModal__closebtn" type="button" aria-label="закриття модального вікна">
+      <svg width="18" height="18" class="modal__closeicon">
+        <use href="/images/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+  </form>
+</div>
