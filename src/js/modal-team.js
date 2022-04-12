@@ -22,6 +22,6 @@ function removeModalTeam(e) {
     refs.teamContainer.innerHTML = '';
   }
   refs.closeModalTeamBtn.removeEventListener('click', removeModalTeam);
-  refs.modalTeam.removeventListener('click', removeModalTeam);
+  refs.modalTeam.removeEventListener('click', removeModalTeam);
   window.removeEventListener(`keydown`, removeModalTeam);
 }
