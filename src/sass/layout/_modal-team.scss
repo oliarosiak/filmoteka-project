@@ -1,11 +1,12 @@
 .modal-team {
-    position: absolute;
-    top: 50%;
+    position: fixed;
+    top: 0;
     left: 50%;
-    width: 280px;
-    height: 85vh;
+    width: 240px;
+    height: 95vh;
+    margin-top: 20px;
     overflow-y: scroll;
-    transform: translate(-50%, -50%) scale(1);
+    transform: translate(-50%, 0) scale(1);
     transition: transform $primary-animation,
     opacity $primary-animation;
     padding: 8px 20px 40px 20px;
@@ -18,11 +19,15 @@
 
     @media screen and (min-width: 768px) {
         width: 704px;
+        height: 68vh;
+        margin-top: 214px;
         padding: 8px 36px 40px 36px;
     }
 
     @media screen and (min-width: 1024px) {
-        width: 800px;
+        width: 814px;
+        height: 60vh;
+        margin-top: 151px;
         padding: 8px 16px 40px 16px;
     }
 }
@@ -37,13 +42,13 @@
     height: 30px;
     
     background-color: transparent;
-    stroke: $primary-text-color;
 
-    transition: stroke $primary-animation, transform $primary-animation;
+
+    transition: fill $primary-animation, transform $primary-animation;
 
     &:hover,
     &:focus {
-        stroke: $primary-accent-color;
+        fill: $primary-accent-color;
         transform: scale(1.1);
     }
 }
@@ -55,8 +60,7 @@
     @media screen and (min-width: 768px) {
         display: flex;
         flex-wrap: wrap;
-        margin-bottom: 2px;
-        margin-left: calc(-1 * 32px);
+        margin-left: calc(-1 * 45px);
     }
 
     @media screen and (min-width: 1024px) {
@@ -74,12 +78,13 @@
     transition: box-shadow $primary-animation, transform $primary-animation;
 
     @media screen and (min-width: 768px) {
-        flex-basis: calc(100% / 2 - 32px);
-        margin-left: 32px;
+        flex-basis: calc(100% / 2 - 45px);
+        margin-left: 45px;
     }
 
     @media screen and (min-width: 1024px) {
         flex-basis: calc(100% / 3 - 32px);
+        margin-left: 32px;
     }
 
     &:hover,
@@ -101,7 +106,7 @@
 
 .team__desc {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 
     @include font(normal, 20px, 500, 23px, auto);
 }
@@ -119,8 +124,8 @@
 }
 
 .socials__item {
-    width: 44px;
-    height: 44px;
+    width: 34px;
+    height: 34px;
 
     &:not(:first-child) {
         margin-left: 20px;
@@ -144,10 +149,12 @@
 }
 
 .socials__icon {
-    transition: transform $primary-animation;
+    filter: invert(0%);
+    transition: transform $primary-animation, filter $primary-animation;
 
     .socials__link:hover &,
     .socials__link:focus & {
         transform: scale(1.1);
+        filter: invert(100%);
     }
 }

@@ -8,7 +8,7 @@ export const refs = {
   signInModal__closebtn: document.querySelector('.signInModal__closebtn'),
   signOutBtn: document.querySelector('#signOutBtn'),
   // ==========
-  openModalTeamBtn: document.querySelector('.open__modal-team'),
+  openModalTeamBtn: document.querySelector('.footer-link'),
   closeModalTeamBtn: document.querySelector('.close__modal-team'),
   modalTeam: document.querySelector('.backdrop-team'),
 
