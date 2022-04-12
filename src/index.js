@@ -5,6 +5,7 @@ import { refs } from './js/refs';
 import { teamMarkup } from './js/team-markup';
 import './js/authFirebase';
 import './js/authModal';
+import './js/libraryButton';
 
 // модалка для команди
 
