@@ -21,3 +21,6 @@ export async function getFilmById(filmId) {
     console.log(error);
   }
 }
+
+// getMovies();
+// getFilmById();

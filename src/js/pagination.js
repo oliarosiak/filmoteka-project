@@ -1,7 +1,7 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../sass/layout/_pagination.scss';
-import { getMovies } from '../api/fetch';
+import { getMovies } from './fetch';
 // import { renderGalery } from './galery';
 
 const container = document.getElementById('pagination');
