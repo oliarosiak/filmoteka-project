@@ -126,4 +126,4 @@ var t,o=arguments[3];!function(o,i){"function"==typeof t&&t.amd?t([],function(){
 },{"./refs":"VyiV","./team-markup":"EdNd"}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss");var e=r(require("./api/fetch"));function r(e){return e&&e.__esModule?e:{default:e}}require("./js/pagination"),require("./js/authFirebase"),require("./js/authModal"),require("./js/modal-team");
 },{"./sass/main.scss":"clu1","./api/fetch":"diwC","./js/pagination":"o8lo","./js/authFirebase":"w9Hs","./js/authModal":"AUp6","./js/modal-team":"O9Th"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.ded80b38.js.map
+//# sourceMappingURL=/filmoteka-project/src.d4465afa.js.map
