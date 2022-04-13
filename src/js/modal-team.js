@@ -16,12 +16,13 @@ function removeModalTeam(e) {
   if (
     e.target === refs.modalTeam ||
     e.currentTarget === refs.closeModalTeamBtn ||
-    e.code === `Escape`
+    e.code === 'Escape'
   ) {
     refs.modalTeam.classList.add('is-hidden');
     refs.teamContainer.innerHTML = '';
+
+    refs.closeModalTeamBtn.removeEventListener('click', removeModalTeam);
+    refs.modalTeam.removeEventListener('click', removeModalTeam);
+    window.removeEventListener('keydown', removeModalTeam);
   }
-  refs.closeModalTeamBtn.removeEventListener('click', removeModalTeam);
-  refs.modalTeam.removeEventListener('click', removeModalTeam);
-  window.removeEventListener(`keydown`, removeModalTeam);
 }
