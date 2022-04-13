@@ -1,7 +1,7 @@
 export const teamItems = [
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Rosiak.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/rosiak.jpg',
     firstName: 'Olha',
     secondName: 'Rosiak',
     position: 'Team Lead',
@@ -10,7 +10,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Protashchuk.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/protashchuk.jpg',
     firstName: 'Stanislav',
     secondName: 'Protashchuk',
     position: 'Scrum Master',
@@ -19,7 +19,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Ivanytskyi.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/ivanytskyi.jpg',
     firstName: 'Oleh',
     secondName: 'Ivanytskyi',
     position: 'Developer',
@@ -28,7 +28,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Hembarska.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/hembarska.jpg',
     firstName: 'Oleksandra',
     secondName: 'Hembarska',
     position: 'Developer',
@@ -37,7 +37,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Hrytsyshyn.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/hrytsyshyn.jpg',
     firstName: 'Vasyl',
     secondName: 'Hrytsyshyn',
     position: 'Developer',
@@ -46,7 +46,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/tsiruh.jpg',
     firstName: 'Marta',
     secondName: 'Tsiruh',
     position: 'Developer',
@@ -64,7 +64,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/khmil.jpg',
     firstName: 'Oksana',
     secondName: 'Khmil',
     position: 'Developer',
@@ -91,7 +91,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/Radkovska.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/radkovska.jpg',
     firstName: 'Iryna',
     secondName: 'Radkovska',
     position: 'Developer',
