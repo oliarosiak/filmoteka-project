@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../sass/layout/_pagination.scss';
 import { getMovies } from './fetch';
-import { renderCardMurkup } from './renderCard';
+import { renderCardMurkup } from './render-сard';
 
 const container = document.getElementById('pagination');
 

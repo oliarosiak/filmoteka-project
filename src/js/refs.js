@@ -9,12 +9,13 @@ export const refs = {
   signOutBtn: document.querySelector('#signOutBtn'),
   // ==========
   openModalTeamBtn: document.querySelector('.footer-link'),
-  closeModalTeamBtn: document.querySelector('.close__modal-team'),
+  closeModalTeamBtn: document.querySelector('.modal-team__close-btn'),
   modalTeam: document.querySelector('.backdrop-team'),
 
-  teamContainer: document.querySelector(`.team`),
+  teamContainer: document.querySelector('.team'),
 
   //-----HV
-  startFilmList: document.querySelector('.film-list'),
+  homeFilmList: document.querySelector('.film-list'),
+  libraryFilmList: document.querySelector('.film-library'),
   //-----HV
 };
