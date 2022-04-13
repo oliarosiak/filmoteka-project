@@ -1,10 +1,9 @@
-
 .footer-section{
    width: 100%;
    justify-content: center;
-padding:30px 0 ;
+   padding: 30px 0 ;
    margin-top: 40px;
-  display: flex;
+   display: flex;
    background-color:$secondary-background-color;
    @media screen and (min-width: 768px) {
       margin-top: 60px;
@@ -12,31 +11,43 @@ padding:30px 0 ;
 }
 
 .footer-link{
-   padding-left: 5px;
-border-bottom: 0.5px solid $footer-text-color;
-background-color:$secondary-background-color;
-@media screen and (min-width: 768px) {
-  
+   text-decoration-line: underline;
+   background-color:$secondary-background-color;   
+   &:hover{
+      color: $primary-accent-color;
+   }
 }
 
+.footer__text-left{
+   @media screen and (min-width: 768px){
+      margin-left: 4px;
+   }   
 }
+
+.footer__text-right{
+   margin-right: 4px;
+}
+
 .footer-link,
 .footer__text{
-   color:$footer-text-color ;
+   color: $footer-text-color ;
    font-family: 'Roboto';
-font-style: normal;
-font-weight: 400;
-font-size: 14px;
-line-height: 1.14;
-// display: flex;
-align-items: center;
-text-align: center;
+   font-style: normal;
+   font-weight: 400;
+   font-size: 14px;
+   line-height: 1.14;
+   // display: flex;
+   align-items: center;
+   text-align: center;
+   @media screen and (min-width: 768px){
+      font-size: 16px;
+      line-height: 1.19;
+   }
 }
 
 .box-text{
-   @media screen and (min-width: 768px) {
-  
-      padding-top:0px ;
+   @media screen and (min-width: 768px) {  
+      padding-top:0px ;      
    }
    padding-top: 10px;
    display: flex;
@@ -45,11 +56,30 @@ text-align: center;
 .footer__logo{
    margin-left: 10px;
    margin-right: 10px;
+   
+   animation-name: changeSize;
+   animation-duration: 3500ms;
+   animation-timing-function: linear; 
+   animation-iteration-count: infinite;
+   animation-direction: alternate;
 }
 
 .footer-box{
    @media screen and (min-width: 768px) {
       display: flex;
-  }
-   
+  }   
+}
+
+@keyframes changeSize {
+   0% {     
+      fill: $primary-accent-color;  
+   }   
+
+   50% {
+      fill: $primary-background-color;
+   }
+
+   100% {  
+      fill: $footer-text-color;
+   }
 }

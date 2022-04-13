@@ -2,7 +2,7 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import '../sass/layout/_pagination.scss';
 import { getMovies } from './fetch';
-// import { renderGalery } from './galery';
+import { renderCardMurkup } from './renderCard';
 
 const container = document.getElementById('pagination');
 
@@ -18,22 +18,22 @@ const pagination = new Pagination(container, options);
 
 const page = pagination.getCurrentPage();
 
-export function fetch() {
+function fetch() {
   getMovies(page).then(data => {
     pagination.reset(data.total_results);
-    // renderGalery(data);
+    renderCardMurkup(data);
   });
 }
 
 fetch();
 
-export function paginationOn() {
+function paginationOn() {
   pagination.on('afterMove', event => {
     const currentPage = event.page;
     getMovies(currentPage).then(data => {
-      // renderGalery(data);
+      renderCardMurkup(data);
       window.scrollTo({
-        top: 250,
+        top: 0,
         left: 0,
         behavior: 'smooth',
       });

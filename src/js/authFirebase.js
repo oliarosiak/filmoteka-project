@@ -8,7 +8,6 @@ import {
   getAuth,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getDatabase } from 'firebase/database';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -27,7 +26,6 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
-const database = getDatabase(app);
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -70,7 +68,7 @@ function onFormSignIn(e) {
 function onFormSignOut(e) {
   signOut(auth)
     .then(() => {
-      alert(`До побачення`);
+      Notify.info(`До побачення`);
       hideBtnAuth();
     })
     .catch(error => {
