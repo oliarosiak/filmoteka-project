@@ -11,7 +11,7 @@ getMovies().then((data) => renderCardMurkup(data)).catch((e) => {
 });
 //------------------------
 
-export function renderCardMurkup(data) {
+ function renderCardMurkup(data) {
     const galleryMarkup = data.results.map(({id, poster_path, title, genre_ids, release_date, vote_average }) => {
         return `<li class="card">
                     <a href="#${id}" class="card__link" id="${id}">
