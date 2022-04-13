@@ -1,13 +1,6 @@
 import { refs } from './refs';
 import {genres} from './genres.json';
 
-//---------------------
-// import { getMovies } from './fetch'
-
-
-// getMovies().then((data) => { renderCardMurkup(data) }).catch((e) => {
-//     console.log(e)
-// });
 //функція рендеру основної сторінки
 export function renderCardMurkup(data) {
     const galleryMarkup = data.results.map(({ id, poster_path, title, genre_ids, release_date}) => {
