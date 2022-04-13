@@ -1,4 +1,5 @@
 .header {
+  
     max-width: 320px;
   
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
@@ -6,7 +7,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-  
+    
     @media screen and (min-width: 768px) {
       max-width: 768px;
   
@@ -16,11 +17,12 @@
   
     @media screen and (min-width: 1024px) {
       max-width: 1024px;
-  
+
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_home_bg-2x.jpg);
     }
   }
+
 
   .library {
     max-width: 320px;
@@ -40,15 +42,11 @@
   
     @media screen and (min-width: 1024px) {
       max-width: 1024px;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_library_bg-2x.jpg);
-          
-}
+    }
     }
 
-  
-  
   .header__wrapper {
     display: flex;
     justify-content: space-between;
@@ -195,10 +193,9 @@
     
   }
 .jsNone {
-// display: none;
+display: none;
 
-  animation: flip-out-horizontal 0.8s linear 0s 1 normal forwards;
-
+  // animation: flip-out-horizontal 0.8s linear 0s 1 normal forwards;
 }
 @keyframes flip-out-horizontal {
   0%{
@@ -270,3 +267,14 @@
   .auth__list-item:nth-child(2) {
     margin-left: 40px;
   }
+  .header-outer {
+  position: sticky;
+}
+.header-inner {
+  position: sticky;
+  top: 0; 
+}
+.header-outer {
+  position: sticky;
+  top: -180px;
+}
