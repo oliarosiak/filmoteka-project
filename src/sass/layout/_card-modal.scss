@@ -1,0 +1,70 @@
+.card-modal {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 50%;
+    width: 280px;
+    height: 95vh;
+    margin-top: 20px;
+    overflow-y: scroll;
+    transform: translate(-50%, 0) scale(1);
+    transition: transform $primary-animation,
+    opacity $primary-animation;
+    padding: 48px 20px 40px 20px;
+    background-color: $primary-background-color;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media screen and (min-width: 320px) {
+        width: 280px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 704px;
+        height: 68vh;
+        margin-top: 214px;
+        padding: 40px 72px 40px 36px;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 814px;
+        height: 60vh;
+        margin-top: 151px;
+        padding: 40px 16px 40px 16px;
+    }
+}
+
+.card-modal__button-close {
+    position: absolute;
+
+    top: 8px;
+    right: 8px;
+    
+    width: 30px;
+    height: 30px;
+    
+    background-color: transparent;
+
+
+    transition: fill $primary-animation;
+
+    &:hover,
+    &:focus {
+        fill: $primary-accent-color;
+    }
+}
+.card-modal__button-add-watched {
+    width: 136px;
+    height: 44px;
+    background-color: rgb(8, 0, 255);
+}
+.card-modal__button-add-queue {
+    width: 136px;
+    height: 44px;
+    background-color: rgb(247, 210, 0);
+}
+.card-modal__banner {
+    width: 375px;
+}
+.card-modal__discription-box {
+    display: flex;
+}

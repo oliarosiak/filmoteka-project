@@ -6,4 +6,6 @@ import './js/libraryButton';
 import './js/modal-team';
 import './js/fetch';
 import './js/renderCard'; // HV
+import './js/cardModal';
 import './js/realtimaDataBase';
+
