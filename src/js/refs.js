@@ -9,10 +9,10 @@ export const refs = {
   signOutBtn: document.querySelector('#signOutBtn'),
   // ==========
   openModalTeamBtn: document.querySelector('.footer-link'),
-  closeModalTeamBtn: document.querySelector('.close__modal-team'),
+  closeModalTeamBtn: document.querySelector('.modal-team__close-btn'),
   modalTeam: document.querySelector('.backdrop-team'),
 
-  teamContainer: document.querySelector(`.team`),
+  teamContainer: document.querySelector('.team'),
 
   //-----HV
   homeFilmList: document.querySelector('.film-list'),
