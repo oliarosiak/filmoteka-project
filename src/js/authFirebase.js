@@ -8,6 +8,7 @@ import {
   getAuth,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { getFirestore, getDoc, doc, setDoc, collection, data, addDoc } from 'firebase/firestore';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -26,6 +27,37 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
+const db = getFirestore(app);
+const curUser = JSON.parse(localStorage.getItem('User'));
+const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
+
+const arrFilm = [];
+//функції для Firestore
+
+async function setData(userId, array) {
+  await setDoc(doc(db, 'users', userId), { filmId: array });
+}
+
+document.addEventListener('click', e => {
+  const curLink = e.target.closest('.card__link');
+  if (!curLink) {
+    return;
+  }
+  const curFilm = curLink.id;
+  console.log(curFilm);
+
+  addToWatchedBtn.addEventListener('click', e => {
+    arrFilm.push(curFilm);
+    setData(curUser, arrFilm);
+  });
+});
+
+async function getData(userId) {
+  const docRef = doc(db, 'users', userId);
+  const docSnap = await getDoc(docRef);
+  console.log(docSnap.data());
+  return docSnap.data();
+}
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -43,7 +75,6 @@ function onFormSignUp(e) {
   const userPassword = e.target.registerPassword.value;
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
     .then(() => {
-      hideBtnAuth();
       refs.registerForm.classList.toggle('is-hidden');
       Report.success(`Успішно зареєстрований`, `Гарного перегляду ${userEmail}`, `Ok`);
     })
@@ -57,10 +88,10 @@ function onFormSignIn(e) {
   const userEmail = e.target.signInEmail.value;
   const userPassword = e.target.signInPassword.value;
   signInWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(() => {
+    .then(e => {
       Notify.success(`Привіт ${userEmail}`);
-      hideBtnAuth();
       refs.signInForm.classList.toggle('is-hidden');
+      getData(curUser);
     })
     .catch(error => Report.failure(`Помилка`, ` ${error.message}`, `Ok`));
 }
@@ -79,8 +110,10 @@ function onFormSignOut(e) {
 // detect auth state
 onAuthStateChanged(auth, user => {
   if (user !== null) {
-    localStorage.setItem('UserUID', JSON.stringify(user.uid));
+    // console.log(user.email);
+    localStorage.setItem('User', JSON.stringify(user.uid));
+    hideBtnAuth();
   } else {
-    localStorage.setItem('UserUID', JSON.stringify('noUser'));
+    localStorage.setItem('User', JSON.stringify('noUser'));
   }
 });
