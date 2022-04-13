@@ -15,6 +15,7 @@ export const refs = {
   teamContainer: document.querySelector('.team'),
 
   //-----HV
-  startFilmList: document.querySelector('.film-list'),
+  homeFilmList: document.querySelector('.film-list'),
+  libraryFilmList: document.querySelector('.film-library'),
   //-----HV
 };
