@@ -3,6 +3,7 @@ import 'tui-pagination/dist/tui-pagination.css';
 import '../sass/layout/_pagination.scss';
 import { getMovies } from './fetch';
 import { renderCardMurkup } from './render-сard';
+import { refs } from './refs';
 
 const container = document.getElementById('pagination');
 
@@ -31,6 +32,7 @@ function paginationOn() {
   pagination.on('afterMove', event => {
     const currentPage = event.page;
     getMovies(currentPage).then(data => {
+      refs.homeFilmList.innerHTML = '';
       renderCardMurkup(data);
       window.scrollTo({
         top: 0,
