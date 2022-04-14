@@ -8,7 +8,17 @@ import {
   getAuth,
   onAuthStateChanged,
 } from 'firebase/auth';
-import { getFirestore, getDoc, doc, setDoc, collection, data, addDoc } from 'firebase/firestore';
+import { getFilmById } from './fetch';
+import { renderCardMurkupLibreary } from './render-сard';
+import {
+  getFirestore,
+  updateDoc,
+  arrayUnion,
+  getDoc,
+  doc,
+  setDoc,
+  onSnapshot,
+} from 'firebase/firestore';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
@@ -28,36 +38,21 @@ export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 export const auth = getAuth();
 const db = getFirestore(app);
-const curUser = JSON.parse(localStorage.getItem('User'));
 const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
+const curUser = JSON.parse(localStorage.getItem('User'));
 
-const arrFilm = [];
 //функції для Firestore
 
-async function setData(userId, array) {
-  await setDoc(doc(db, 'users', userId), { filmId: array });
-}
+// async function setData(userId) {
+//   await setDoc(doc(db, 'users', userId), { watche: [], queue: [] });
+// }
 
-document.addEventListener('click', e => {
-  const curLink = e.target.closest('.card__link');
-  if (!curLink) {
-    return;
-  }
-  const curFilm = curLink.id;
-  console.log(curFilm);
-
-  addToWatchedBtn.addEventListener('click', e => {
-    arrFilm.push(curFilm);
-    setData(curUser, arrFilm);
-  });
-});
-
-async function getData(userId) {
-  const docRef = doc(db, 'users', userId);
-  const docSnap = await getDoc(docRef);
-  console.log(docSnap.data());
-  return docSnap.data();
-}
+// async function getData(userId) {
+//   const docRef = doc(db, 'users', userId);
+//   const docSnap = await getDoc(docRef);
+//   console.log(docSnap.data());
+//   return docSnap.data();
+// }
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -74,9 +69,17 @@ function onFormSignUp(e) {
   const userEmail = e.target.registerEmail.value;
   const userPassword = e.target.registerPassword.value;
   createUserWithEmailAndPassword(auth, userEmail, userPassword)
-    .then(() => {
+    .then(e => {
       refs.registerForm.classList.toggle('is-hidden');
       Report.success(`Успішно зареєстрований`, `Гарного перегляду ${userEmail}`, `Ok`);
+      setDoc(doc(db, 'users', e.user.uid), { watche: [], queue: [] });
+
+      // //
+      // setTimeout(() => {
+      //   setDoc(doc(db, 'users', curUser), { watche: [], queue: [] });
+      // }, 1000);
+
+      // //
     })
     .catch(error => {
       Report.failure(`Помилка`, ` ${error.message}`, `Ok`);
@@ -110,9 +113,41 @@ function onFormSignOut(e) {
 // detect auth state
 onAuthStateChanged(auth, user => {
   if (user !== null) {
-    // console.log(user.email);
-    localStorage.setItem('User', JSON.stringify(user.uid));
+    const userId = user.uid;
+    localStorage.setItem('User', JSON.stringify(userId));
     hideBtnAuth();
+    // отримуємо дані
+    onSnapshot(doc(db, 'users', userId), doc => {
+      const watcheArr = doc.data().watche;
+      // console.log(watcheArr);
+      // getFilmById рендирити
+      const filmObjct = [];
+      watcheArr.forEach(id => {
+        getFilmById(id).then(data => {
+          filmObjct.push(data);
+        });
+      });
+      console.log(filmObjct);
+      setTimeout(() => {
+        renderCardMurkupLibreary(filmObjct);
+      }, 1000);
+    });
+    //
+    document.addEventListener('click', e => {
+      const curLink = e.target.closest('.card__link');
+      if (!curLink) {
+        return;
+      }
+      const curFilm = curLink.id;
+
+      addToWatchedBtn.addEventListener('click', () => {
+        // запис в фаєр фільм
+        updateDoc(doc(db, 'users', userId), {
+          watche: arrayUnion(curFilm),
+        });
+        getFilmById(curFilm).then(data => data);
+      });
+    });
   } else {
     localStorage.setItem('User', JSON.stringify('noUser'));
   }
