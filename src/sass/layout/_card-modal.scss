@@ -67,4 +67,8 @@
 }
 .card-modal__discription-box {
     display: flex;
+    flex-direction: column;
+}
+.card-modal__button-box {
+    display: flex;
 }
