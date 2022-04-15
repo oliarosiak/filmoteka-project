@@ -1,8 +1,5 @@
 const scrollBtn = document.querySelector('.scroll-btn');
 
-console.log(document);
-console.log(window);
-
 document.addEventListener('scroll', scrollPage);
 // window.addEventListener('scroll', scrollPage);
 scrollBtn.addEventListener('click', scrollToTop);
