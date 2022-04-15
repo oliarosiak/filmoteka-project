@@ -20,11 +20,12 @@
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <div class="wrapper">
-
-      <include src="./partials/header.html"></include>  
+      <include src="./partials/header.html"></include>
       <main>
-        <include src="./partials/main.html"></include>
-        <div id="pagination" class="tui-pagination"></div>
+        <section class="section">
+          <include src="./partials/film-list.html"></include>
+          <div id="pagination" class="tui-pagination"></div>
+        </section>
       </main>
 
       <include src="./partials/footer.html"></include>
@@ -34,7 +35,6 @@
       <include src="./partials/modal-team.html"></include>
       <include src="./partials/cardModal.html"></include>
       <include src="./partials/scroll-btn.html"></include>
-
     </div>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->
