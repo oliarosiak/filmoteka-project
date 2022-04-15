@@ -16,7 +16,8 @@ refs.watched.addEventListener('click', clickButWatched);
 refs.home.addEventListener('click', clickButHome);
 refs.library.addEventListener('click', clickButLibrary);
 
-function clickButHome (){
+function clickButHome (e){
+    e.preventDefault()
     refs.home.classList.toggle('current')
     refs.library.classList.toggle('current')
     refs.buttonLibrary.classList.toggle('visually-hidden')
@@ -25,7 +26,8 @@ refs.background.classList.toggle('header')
 refs.background.classList.toggle('library')
 }
 
-function clickButLibrary (){
+function clickButLibrary (e){
+    e.preventDefault()
     refs.library.classList.toggle('current')
     refs.home.classList.toggle('current')
     refs.input.classList.toggle('visually-hidden')
