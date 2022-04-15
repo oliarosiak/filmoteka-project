@@ -73,7 +73,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/havryliuk.jpg',
     firstName: 'Mykola',
     secondName: 'Havryliuk',
     position: 'Developer',
