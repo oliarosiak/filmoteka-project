@@ -23,7 +23,6 @@
     }
   }
 
-
   .library {
     max-width: 320px;
   
@@ -207,10 +206,6 @@
     
   }
 
-.jsNone {
-display: none;  
-}
-
   .header__form {
     position: relative;
     display: flex;
@@ -273,14 +268,16 @@ display: none;
     width: 68px; 
   }
 
-  .header-outer {
-  position: sticky;
+.progress-container {
+  width: 1024px;
+  height: 4px;
+  background: #0c0c0c;
+  position: fixed;
+  top: 0;
 }
-.header-inner {
-  position: sticky;
-  top: 0; 
-}
-.header-outer {
-  position: sticky;
-  top: -180px;
+
+.progress-bar {
+  height: 4px;
+  background: $primary-accent-color;
+  width: 0%;
 }

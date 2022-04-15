@@ -5,7 +5,9 @@ const refs = {
     library: document.querySelector('#library'),
     input: document.querySelector('#input'),
     buttonLibrary: document.querySelector('.but__container'),
-    background: document.querySelector('#background')
+    background: document.querySelector('#background'),
+    headerScroll: document.querySelector('.scroll'),
+    progressContainer: document.querySelector('.progress-container')
 };
 
 
@@ -15,32 +17,40 @@ refs.home.addEventListener('click', clickButHome);
 refs.library.addEventListener('click', clickButLibrary);
 
 function clickButHome (){
-    refs.home.classList.add('current')
-    refs.library.classList.remove('current')
-    refs.buttonLibrary.classList.add('jsNone')
-refs.input.classList.remove('jsNone')
-refs.background.classList.add('header')
-refs.background.classList.remove('library')
+    refs.home.classList.toggle('current')
+    refs.library.classList.toggle('current')
+    refs.buttonLibrary.classList.toggle('visually-hidden')
+refs.input.classList.toggle('visually-hidden')
+refs.background.classList.toggle('header')
+refs.background.classList.toggle('library')
 }
 
 function clickButLibrary (){
-    refs.library.classList.add('current')
-    refs.home.classList.remove('current')
-    refs.input.classList.add('jsNone')
-    refs.buttonLibrary.classList.remove('jsNone')
-refs.background.classList.add('library')
-refs.background.classList.remove('header')
+    refs.library.classList.toggle('current')
+    refs.home.classList.toggle('current')
+    refs.input.classList.toggle('visually-hidden')
+    refs.buttonLibrary.classList.toggle('visually-hidden')
+refs.background.classList.toggle('library')
+refs.background.classList.toggle('header')
 
 }
 
 function clickButQueue (){
-    refs.queue.classList.add('library__current')
-    refs.watched.classList.remove('library__current')
-
-
+    refs.queue.classList.toggle('library__current')
+    refs.watched.classList.toggle('library__current')
 };
 
 function clickButWatched (){
-    refs.watched.classList.add('library__current')
-    refs.queue.classList.remove('library__current')
+    refs.watched.classList.toggle('library__current')
+    refs.queue.classList.toggle('library__current')
 };
+
+
+window.onscroll = function() {startBar()};
+
+function startBar() {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById("myBar").style.width = scrolled + "%";
+}
