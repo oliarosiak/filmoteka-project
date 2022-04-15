@@ -135,8 +135,8 @@ const e={queue:document.querySelector("#queue"),watched:document.querySelector("
 },{"./refs":"VyiV","./team-markup":"EdNd"}],"NM8I":[function(require,module,exports) {
 "use strict";var e=require("./refs"),o=require("./fetch");(0,o.getMovies)().then(e=>renderCardMurkup(e)).catch(e=>{console.log(e)});const r=document.querySelector(".film-list"),c=document.querySelector(".backdrop--card");function t(e){e.target.closest(".card__link")&&(console.log(e.target),c.classList.remove("is-hidden"))}console.log(r),console.log(c),r.addEventListener("click",t);
 },{"./refs":"VyiV","./fetch":"spyz"}],"iH5e":[function(require,module,exports) {
-const o=document.querySelector(".scroll-btn");function e(){document.body.scrollTop>60||document.documentElement.scrollTop>60?o.style.display="block":o.style.display="none"}function n(){document.body.scrollTop=0,document.documentElement.scrollTop=0}console.log(document),console.log(window),document.addEventListener("scroll",e),o.addEventListener("click",n);
+const o=document.querySelector(".scroll-btn");function e(){document.body.scrollTop>60||document.documentElement.scrollTop>60?o.style.display="block":o.style.display="none"}function n(){document.body.scrollTop=0,document.documentElement.scrollTop=0}document.addEventListener("scroll",e),o.addEventListener("click",n);
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination"),require("./js/authFirebase"),require("./js/authModal"),require("./js/libraryButton"),require("./js/modal-team"),require("./js/fetch"),require("./js/render-сard"),require("./js/cardModal"),require("./js/realtimaDataBase"),require("./js/scroll-btn");
 },{"./sass/main.scss":"clu1","./js/pagination":"o8lo","./js/authFirebase":"w9Hs","./js/authModal":"AUp6","./js/libraryButton":"wSgt","./js/modal-team":"O9Th","./js/fetch":"spyz","./js/render-сard":"hYIH","./js/cardModal":"NM8I","./js/realtimaDataBase":"UYQs","./js/scroll-btn":"iH5e"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.3a0d1f6e.js.map
+//# sourceMappingURL=/filmoteka-project/src.bfaf48bc.js.map
