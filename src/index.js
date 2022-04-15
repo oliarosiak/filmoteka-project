@@ -9,5 +9,5 @@ import './js/render-сard'; // HV
 // import './js/renderCard'; // HV
 import './js/cardModal';
 import './js/realtimaDataBase';
-
+import './js/scroll-btn';
 
