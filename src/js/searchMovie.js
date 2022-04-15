@@ -1,3 +1,4 @@
+import debounce from 'lodash.debounce';
 import { getMovies } from './fetch';
 import { clearRender } from './clearRender'
 import { renderCardMurkup } from './render-сard';
@@ -5,11 +6,12 @@ import { renderCardMurkup } from './render-сard';
 
 export let search = 'movie/popular';
 
+const DEBOUNCE_DELAY = 300;
 const inputValue = document.querySelector('.header__form--input');
 
-inputValue.addEventListener('input', searchMovie);
+inputValue.addEventListener('input', debounce(searchMovie, DEBOUNCE_DELAY) );
 
-function searchMovie(e) {
+export function searchMovie(e) {
     const query = e.target.value;
     clearRender();
     if (query.length === 0) {
@@ -20,5 +22,3 @@ function searchMovie(e) {
     
     getMovies(query).then(renderCardMurkup)
 }
-
-
