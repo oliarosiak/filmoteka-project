@@ -39,20 +39,8 @@ const analytics = getAnalytics(app);
 export const auth = getAuth();
 const db = getFirestore(app);
 const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
+const addToQueueBtn = document.querySelector('.card-modal__button-add-queue');
 const curUser = JSON.parse(localStorage.getItem('User'));
-
-//функції для Firestore
-
-// async function setData(userId) {
-//   await setDoc(doc(db, 'users', userId), { watche: [], queue: [] });
-// }
-
-// async function getData(userId) {
-//   const docRef = doc(db, 'users', userId);
-//   const docSnap = await getDoc(docRef);
-//   console.log(docSnap.data());
-//   return docSnap.data();
-// }
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -72,14 +60,7 @@ function onFormSignUp(e) {
     .then(e => {
       refs.registerForm.classList.toggle('is-hidden');
       Report.success(`Успішно зареєстрований`, `Гарного перегляду ${userEmail}`, `Ok`);
-      setDoc(doc(db, 'users', e.user.uid), { watche: [], queue: [] });
-
-      // //
-      // setTimeout(() => {
-      //   setDoc(doc(db, 'users', curUser), { watche: [], queue: [] });
-      // }, 1000);
-
-      // //
+      setDoc(doc(db, 'users', e.user.uid), { watched: [], queue: [] });
     })
     .catch(error => {
       Report.failure(`Помилка`, ` ${error.message}`, `Ok`);
@@ -117,21 +98,20 @@ onAuthStateChanged(auth, user => {
     localStorage.setItem('User', JSON.stringify(userId));
     hideBtnAuth();
     // отримуємо дані
-    onSnapshot(doc(db, 'users', userId), doc => {
-      const watcheArr = doc.data().watche;
-      // console.log(watcheArr);
-      // getFilmById рендирити
-      const filmObjct = [];
-      watcheArr.forEach(id => {
-        getFilmById(id).then(data => {
-          filmObjct.push(data);
-        });
-      });
-      console.log(filmObjct);
-      setTimeout(() => {
-        renderCardMurkupLibreary(filmObjct);
-      }, 1000);
-    });
+    // onSnapshot(doc(db, 'users', userId), doc => {
+    //   const watchedArr = doc.data().watched;
+    //   // render
+    //   // const filmObjct = [];
+    //   // watchedArr.forEach(id => {
+    //   //   getFilmById(id).then(data => {
+    //   //     filmObjct.push(data);
+    //   //   });
+    //   // });
+    //   // console.log(filmObjct);
+    //   // setTimeout(() => {
+    //   //   renderCardMurkupLibreary(filmObjct);
+    //   // }, 1000);
+    // });
     //
     document.addEventListener('click', e => {
       const curLink = e.target.closest('.card__link');
@@ -139,13 +119,17 @@ onAuthStateChanged(auth, user => {
         return;
       }
       const curFilm = curLink.id;
-
-      addToWatchedBtn.addEventListener('click', () => {
-        // запис в фаєр фільм
+      // додаємо в queue
+      addToQueueBtn.addEventListener('click', () => {
         updateDoc(doc(db, 'users', userId), {
-          watche: arrayUnion(curFilm),
+          queue: arrayUnion(curFilm),
         });
-        getFilmById(curFilm).then(data => data);
+      });
+      // додаємо в watched
+      addToWatchedBtn.addEventListener('click', () => {
+        updateDoc(doc(db, 'users', userId), {
+          watched: arrayUnion(curFilm),
+        });
       });
     });
   } else {
