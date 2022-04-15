@@ -45,14 +45,21 @@
         url(../images/header/desktop_library_bg-2x.jpg);
     }
   }
-
+a{
+    font-size: 0px  ;
+  }
   .header__container{
+    max-height: 247px;
     padding-top: 44px;
     padding-bottom: 22px;
 
     @media screen and (min-width: 768px){
       padding-top: 40px;
       padding-bottom: 20px;
+      max-height: 228px;
+    }
+    @media screen and (min-width: 1024px){
+      max-height: 228px;
     }
   }
 
@@ -60,13 +67,21 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // margin-top: 44px;
     margin-bottom: 60px;
   
     @media screen and (min-width: 768px) {
       justify-content: flex-end;
-      // margin-top: 40px;
       margin-bottom: 40px;
+    }
+  }
+  .container-logo{
+    
+        @media screen and (min-width: 768px) {
+          margin-right: 387px;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      margin-right: 645px;
     }
   }
   
@@ -126,6 +141,7 @@
     color: $secondary-text-color;
     text-transform: uppercase;
   }
+
   
   .header__navigation--home-btn:hover,
   .header__navigation--home-btn:focus {
