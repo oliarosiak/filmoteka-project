@@ -10,4 +10,5 @@ import './js/render-сard'; // HV
 import './js/cardModal';
 import './js/realtimaDataBase';
 import './js/scroll-btn';
-
+import './js/clearRender';
+import './js/searchMovie';
