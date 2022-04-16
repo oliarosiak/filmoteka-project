@@ -4,7 +4,7 @@ export const teamMarkup = teamItems
   .map(({ image, firstName, secondName, position, github, linkedin }) => {
     return `
                 <li class="team__item">
-                    <img class="team__image" src="${image}" alt="${firstName} ${secondName}" width="300">
+                    <img class="team__image" src="${image}" alt="${firstName} ${secondName}" width="300" loading="lazy">
                     <div class="team__content">
                         <h3 lang="en" class="team__title">${firstName} <br>${secondName}</h3>
                         <p lang="en" class="team__desc">${position}</p>
