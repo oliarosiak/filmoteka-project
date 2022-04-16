@@ -2,15 +2,16 @@ import { refs } from './refs';
 import { renderCardMurkupLibreary } from './render-сard';
 import { clearRender } from './clearRender';
 
-const queue = JSON.parse(localStorage.getItem('UserFilmQueue'));
-const watched = JSON.parse(localStorage.getItem('UserFilmWatched'));
-
 function watchedRender() {
   clearRender();
+  const watched = JSON.parse(localStorage.getItem('UserFilmWatched'));
+
   renderCardMurkupLibreary(watched);
 }
 function queueRender() {
   clearRender();
+  const queue = JSON.parse(localStorage.getItem('UserFilmQueue'));
+
   renderCardMurkupLibreary(queue);
 }
 
