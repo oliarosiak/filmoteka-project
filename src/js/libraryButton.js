@@ -1,14 +1,15 @@
-const refs = {
-    queue: document.querySelector('#queue'),
-    watched: document.querySelector('#watched'),
-    home: document.querySelector('#home'),
-    library: document.querySelector('#library'),
-    input: document.querySelector('#input'),
-    buttonLibrary: document.querySelector('.but__container'),
-    background: document.querySelector('#background'),
-    headerScroll: document.querySelector('.scroll'),
-    progressContainer: document.querySelector('.progress-container')
-};
+import {refs} from './refs'
+// const refs = {
+//     queue: document.querySelector('#queue'),
+//     watched: document.querySelector('#watched'),
+//     home: document.querySelector('#home'),
+//     library: document.querySelector('#library'),
+//     input: document.querySelector('#input'),
+//     buttonLibrary: document.querySelector('.but__container'),
+//     background: document.querySelector('#background'),
+//     headerScroll: document.querySelector('.scroll'),
+//     progressContainer: document.querySelector('.progress-container')
+// };
 
 
 refs.queue.addEventListener('click', clickButQueue);
