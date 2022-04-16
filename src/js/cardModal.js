@@ -1,34 +1,30 @@
-import { refs } from './refs';
+import { getFilmById } from './fetch';
+import { getMovies } from './fetch';
+import { renderCardModalMurkup} from './cardModalMurkup';
 
-//---------------------
-import { getMovies } from './fetch'
-// import { getMovies } from './js/fetch';
-// import { renderCardMurkup } from './js/renderCard';
-
-
-getMovies().then((data) => renderCardMurkup(data)).catch((e) => {
-    console.log(e)
-});
-
-
-
-// ------------
 const openModal = document.querySelector('.film-list');
 const backdropCardModal = document.querySelector(".backdrop--card");
-// const boxCardModal = document.querySelector(".card-modal");
+const boxCardModal = document.querySelector(".card-modal__container");
 console.log(openModal);
 console.log(backdropCardModal);
-// console.log(boxCardModal);
+console.log(boxCardModal);
 
 openModal.addEventListener("click", openModalCard);
 
-function openModalCard (event) {
-    if (!event.target.closest('.card__link')) {
-        return;
-      }
-   
-    console.log(event.target);
-    backdropCardModal.classList.remove('is-hidden');
-
+function openModalCard(e) {
+    const curLink = e.target.closest('.card__link');
+    if (!curLink) {
+      return;
+    }
+    const curFilm = curLink.id;
     
-}
+    getFilmById (curFilm)
+      .then(data=>{
+        console.log(data)
+      })
+      .catch(e => {
+        console.log(e);
+      });
+    
+    backdropCardModal.classList.remove('is-hidden');
+  }
