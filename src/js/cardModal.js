@@ -20,7 +20,7 @@ function openModalCard(e) {
 
   getFilmById(curFilm)
     .then(data => {
-      console.log(data);
+      // console.log(data);
       renderCardModalMurkup(data);
     })
     .catch(e => {

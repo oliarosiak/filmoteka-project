@@ -9,17 +9,10 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { getFilmById } from './fetch';
-import {
-  getFirestore,
-  updateDoc,
-  arrayUnion,
-  getDoc,
-  doc,
-  setDoc,
-  onSnapshot,
-} from 'firebase/firestore';
+import { getFirestore, updateDoc, arrayUnion, doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { renderCardMurkupLibreary } from './render-сard';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDyDgzI_bPeljmgMmOE_ydsk6-uC9s-z44',
@@ -33,9 +26,9 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const auth = getAuth();
+const auth = getAuth();
 const db = getFirestore(app);
 const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
 const addToQueueBtn = document.querySelector('.card-modal__button-add-queue');
@@ -97,14 +90,18 @@ function updateData(userId) {
     const curFilm = curLink.id;
     // додаємо в queue
     addToQueueBtn.addEventListener('click', () => {
-      updateDoc(doc(db, 'users', userId), {
-        queue: arrayUnion(curFilm),
+      getFilmById(curFilm).then(dataFilm => {
+        updateDoc(doc(db, 'users', userId), {
+          queue: arrayUnion(dataFilm),
+        });
       });
     });
     // додаємо в watched
     addToWatchedBtn.addEventListener('click', () => {
-      updateDoc(doc(db, 'users', userId), {
-        watched: arrayUnion(curFilm),
+      getFilmById(curFilm).then(dataFilm => {
+        updateDoc(doc(db, 'users', userId), {
+          watched: arrayUnion(dataFilm),
+        });
       });
     });
   });
@@ -112,25 +109,14 @@ function updateData(userId) {
 function getFilmWatched(userId) {
   onSnapshot(doc(db, 'users', userId), doc => {
     const watchedArr = doc.data().watched;
-    const watchedObj = [];
-    watchedArr.forEach(id => {
-      getFilmById(id).then(data => {
-        watchedObj.push(data);
-        localStorage.setItem('UserFilmWatched', JSON.stringify(watchedObj));
-      });
-    });
+    localStorage.setItem('UserFilmWatched', JSON.stringify(watchedArr));
   });
 }
-function getFilmQueue(userId) {
+
+export function getFilmQueue(userId) {
   onSnapshot(doc(db, 'users', userId), doc => {
     const queuedArr = doc.data().queue;
-    const queueObj = [];
-    queuedArr.forEach(id => {
-      getFilmById(id).then(data => {
-        queueObj.push(data);
-        localStorage.setItem('UserFilmQueue', JSON.stringify(queueObj));
-      });
-    });
+    localStorage.setItem('UserFilmQueue', JSON.stringify(queuedArr));
   });
 }
 // detect auth state
@@ -139,11 +125,10 @@ onAuthStateChanged(auth, user => {
     const userId = user.uid;
     localStorage.setItem('User', JSON.stringify(userId));
     hideBtnAuth();
-    // отримуємо дані
     getFilmWatched(userId);
     getFilmQueue(userId);
-    //
     updateData(userId);
+    // показати кнопку Library
   } else {
     localStorage.setItem('User', JSON.stringify('noUser'));
     localStorage.setItem('UserFilmWatched', JSON.stringify('[]'));
