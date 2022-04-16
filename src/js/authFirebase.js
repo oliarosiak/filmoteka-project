@@ -12,7 +12,6 @@ import { getFilmById } from './fetch';
 import { getFirestore, updateDoc, arrayUnion, doc, setDoc, onSnapshot } from 'firebase/firestore';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
-import { renderCardMurkupLibreary } from './render-сard';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDyDgzI_bPeljmgMmOE_ydsk6-uC9s-z44',
@@ -30,8 +29,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const auth = getAuth();
 const db = getFirestore(app);
-const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
-const addToQueueBtn = document.querySelector('.card-modal__button-add-queue');
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -71,6 +68,7 @@ function onFormSignIn(e) {
 }
 
 function onFormSignOut() {
+  location.reload();
   signOut(auth)
     .then(() => {
       Notify.info(`До побачення`);
@@ -89,7 +87,7 @@ function updateData(userId) {
     }
     const curFilm = curLink.id;
     // додаємо в queue
-    addToQueueBtn.addEventListener('click', () => {
+    refs.addToQueueBtn.addEventListener('click', () => {
       getFilmById(curFilm).then(dataFilm => {
         updateDoc(doc(db, 'users', userId), {
           queue: arrayUnion(dataFilm),
@@ -97,7 +95,7 @@ function updateData(userId) {
       });
     });
     // додаємо в watched
-    addToWatchedBtn.addEventListener('click', () => {
+    refs.addToWatchedBtn.addEventListener('click', () => {
       getFilmById(curFilm).then(dataFilm => {
         updateDoc(doc(db, 'users', userId), {
           watched: arrayUnion(dataFilm),
@@ -119,6 +117,7 @@ export function getFilmQueue(userId) {
     localStorage.setItem('UserFilmQueue', JSON.stringify(queuedArr));
   });
 }
+
 // detect auth state
 onAuthStateChanged(auth, user => {
   if (user !== null) {
@@ -129,6 +128,7 @@ onAuthStateChanged(auth, user => {
     getFilmQueue(userId);
     updateData(userId);
     // показати кнопку Library
+    // refs.library.removeAttribute('disabled');
   } else {
     localStorage.setItem('User', JSON.stringify('noUser'));
     localStorage.setItem('UserFilmWatched', JSON.stringify('[]'));
