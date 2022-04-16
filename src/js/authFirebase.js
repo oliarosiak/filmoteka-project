@@ -9,7 +9,6 @@ import {
   onAuthStateChanged,
 } from 'firebase/auth';
 import { getFilmById } from './fetch';
-import { renderCardMurkupLibreary } from './render-сard';
 import {
   getFirestore,
   updateDoc,
@@ -40,7 +39,6 @@ export const auth = getAuth();
 const db = getFirestore(app);
 const addToWatchedBtn = document.querySelector('.card-modal__button-add-watched');
 const addToQueueBtn = document.querySelector('.card-modal__button-add-queue');
-const curUser = JSON.parse(localStorage.getItem('User'));
 
 refs.registerForm.addEventListener('submit', onFormSignUp);
 refs.signInForm.addEventListener('submit', onFormSignIn);
@@ -75,12 +73,11 @@ function onFormSignIn(e) {
     .then(e => {
       Notify.success(`Привіт ${userEmail}`);
       refs.signInForm.classList.toggle('is-hidden');
-      getData(curUser);
     })
     .catch(error => Report.failure(`Помилка`, ` ${error.message}`, `Ok`));
 }
 
-function onFormSignOut(e) {
+function onFormSignOut() {
   signOut(auth)
     .then(() => {
       Notify.info(`До побачення`);
@@ -90,7 +87,52 @@ function onFormSignOut(e) {
       Notify.failure(`${error.message}`);
     });
 }
-
+// добавляємо фільми у базу firebase
+function updateData(userId) {
+  document.addEventListener('click', e => {
+    const curLink = e.target.closest('.card__link');
+    if (!curLink) {
+      return;
+    }
+    const curFilm = curLink.id;
+    // додаємо в queue
+    addToQueueBtn.addEventListener('click', () => {
+      updateDoc(doc(db, 'users', userId), {
+        queue: arrayUnion(curFilm),
+      });
+    });
+    // додаємо в watched
+    addToWatchedBtn.addEventListener('click', () => {
+      updateDoc(doc(db, 'users', userId), {
+        watched: arrayUnion(curFilm),
+      });
+    });
+  });
+}
+function getFilmWatched(userId) {
+  onSnapshot(doc(db, 'users', userId), doc => {
+    const watchedArr = doc.data().watched;
+    const watchedObj = [];
+    watchedArr.forEach(id => {
+      getFilmById(id).then(data => {
+        watchedObj.push(data);
+        localStorage.setItem('UserFilmWatched', JSON.stringify(watchedObj));
+      });
+    });
+  });
+}
+function getFilmQueue(userId) {
+  onSnapshot(doc(db, 'users', userId), doc => {
+    const queuedArr = doc.data().queue;
+    const queueObj = [];
+    queuedArr.forEach(id => {
+      getFilmById(id).then(data => {
+        queueObj.push(data);
+        localStorage.setItem('UserFilmQueue', JSON.stringify(queueObj));
+      });
+    });
+  });
+}
 // detect auth state
 onAuthStateChanged(auth, user => {
   if (user !== null) {
@@ -98,41 +140,13 @@ onAuthStateChanged(auth, user => {
     localStorage.setItem('User', JSON.stringify(userId));
     hideBtnAuth();
     // отримуємо дані
-    // onSnapshot(doc(db, 'users', userId), doc => {
-    //   const watchedArr = doc.data().watched;
-    //   // render
-    //   // const filmObjct = [];
-    //   // watchedArr.forEach(id => {
-    //   //   getFilmById(id).then(data => {
-    //   //     filmObjct.push(data);
-    //   //   });
-    //   // });
-    //   // console.log(filmObjct);
-    //   // setTimeout(() => {
-    //   //   renderCardMurkupLibreary(filmObjct);
-    //   // }, 1000);
-    // });
+    getFilmWatched(userId);
+    getFilmQueue(userId);
     //
-    document.addEventListener('click', e => {
-      const curLink = e.target.closest('.card__link');
-      if (!curLink) {
-        return;
-      }
-      const curFilm = curLink.id;
-      // додаємо в queue
-      addToQueueBtn.addEventListener('click', () => {
-        updateDoc(doc(db, 'users', userId), {
-          queue: arrayUnion(curFilm),
-        });
-      });
-      // додаємо в watched
-      addToWatchedBtn.addEventListener('click', () => {
-        updateDoc(doc(db, 'users', userId), {
-          watched: arrayUnion(curFilm),
-        });
-      });
-    });
+    updateData(userId);
   } else {
     localStorage.setItem('User', JSON.stringify('noUser'));
+    localStorage.setItem('UserFilmWatched', JSON.stringify('[]'));
+    localStorage.setItem('UserFilmQueue', JSON.stringify('[]'));
   }
 });
