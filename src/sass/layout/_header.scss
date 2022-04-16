@@ -1,4 +1,6 @@
 header {
+  width: 100%;
+  background-color: $primary-text-color;
   margin-bottom: 20px;
   @media screen and (min-width: 768px) {
     margin-bottom: 60px;
@@ -9,48 +11,36 @@ header {
 }
 
 .header {
-  
-    max-width: 320px;
-  
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_home_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     
     @media screen and (min-width: 768px) {
-      max-width: 768px;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_home_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
-      max-width: 1024px;
-
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_home_bg-2x.jpg);
     }
   }
 
   .library {
-    max-width: 320px;
-  
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_library_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   
     @media screen and (min-width: 768px) {
-      max-width: 768px;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_library_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
-      max-width: 1024px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_library_bg-2x.jpg);
     }
@@ -290,18 +280,11 @@ header {
   }
 
 .progress-container {
-  width: 320px;
+  width: 100%;
   height: 4px;
   background: #0c0c0c;
   position: fixed;
   top: 0;
-      @media screen and (min-width: 768px) {
-      width: 768px;
-    }
-  
-    @media screen and (min-width: 1024px) {
-      width: 1024px;
-    }
 }
 
 .progress-bar {
@@ -315,18 +298,9 @@ header {
 .header--fixed {
   position: fixed;
   top: -100px;
-  max-width: 320px;
   background-color: $primary-text-color;
   transform: translate(0, 100px);
   transition: transform 0.5s linear;
-
-  @media screen and (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media screen and (min-width: 1024px) {
-    max-width: 1024px;
-  }
 
   &>.header__container {
     padding: 30px 20px;
