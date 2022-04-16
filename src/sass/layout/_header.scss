@@ -317,49 +317,61 @@ header {
 
 .header--fixed {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  max-width: 100%;
+  top: -100px;
+  max-width: 320px;
   background-color: $primary-text-color;
+  transform: translate(0, 100px);
+  transition: transform 0.5s linear;
 
-  & > .header__container {
-      padding: 30px 20px;
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 1024px;
+  }
+
+  &>.header__container {
+    padding: 30px 20px;
+
+    @media screen and (min-width: 768px) {
+      padding: 30px 32px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      // max-height: 77px;
+    }
+
+    &>.header__wrapper {
+      margin-bottom: 0;
+    }
+
+    &>.but__container {
+      display: none;
+
       @media screen and (min-width: 768px) {
-        padding: 30px 32px;
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
-      @media screen and (min-width: 1024px) {
-        // max-height: 77px;
-      }
+    }
 
-      & > .header__wrapper {
-        margin-bottom: 0;
-      }
+    &>#input {
+      display: none;
 
-      & > .but__container {
-        display: none;
-        @media screen and (min-width: 768px) {
-          display: flex;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
+      @media screen and (min-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
+    }
 
-      & > #input {
-        display: none;
-        @media screen and (min-width: 768px) {
-          display: block;
-          position: absolute;
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-        }
-      }
-
-      & > .auth {
-        display: none;
-      }
+    &>.auth {
+      display: none;
+    }
   }
 }
