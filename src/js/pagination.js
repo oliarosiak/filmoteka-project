@@ -7,7 +7,7 @@ import { refs } from './refs';
 
 const container = document.getElementById('pagination');
 
-const options = {
+  const options = {
   totalItems: 0,
   itemsPerPage: 20,
   visiblePages: 5,
