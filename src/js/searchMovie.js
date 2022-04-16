@@ -15,13 +15,10 @@ inputValue.addEventListener('input', debounce(searchMovie, DEBOUNCE_DELAY) );
 
 export function searchMovie(e) {
     filmName = e.target.value;
+    if (filmName.length > 0) {
     clearRender();
-    if (filmName.length === 0) {
-        search = 'movie/popular';
-        getMovies().then(renderCardMurkup);
+        search = 'search/movie'
+        query = '&query='    
+        getMovies(filmName).then(renderCardMurkup)
     }
-    search = 'search/movie'
-    query = '&query='
-    
-    getMovies(filmName).then(renderCardMurkup)
 }

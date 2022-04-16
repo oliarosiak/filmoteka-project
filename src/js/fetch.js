@@ -8,7 +8,7 @@ const KEY = '084ca305e7a4e4bb3dbbc7b67e975385';
 
 export async function getMovies(page) {
   const response = await axios.get(
-    `${BASE_URL}${search}?api_key=${KEY}${query}${filmName}&language=en-US&page=${page}`,
+    `${BASE_URL}${search}?api_key=${KEY}&language=en-US${query}${filmName}&page=${page}`,
   );
   try {
     const data = response.data;

@@ -89,6 +89,15 @@ header {
       margin-right: auto;
     }
   }
+
+  .header__logo:hover, .header__logo:focus{
+    color: $primary-accent-color; 
+  }
+
+  .header__logo:hover .header__logo--img,
+  .header__logo:focus .header__logo--img{
+    stroke: $primary-accent-color;
+  }
   
   .header__logo--img {
     stroke: #818181;
@@ -103,13 +112,6 @@ header {
       margin-right: 10px;
     }
   }
-
-  .container-logo:hover .header__title{
-    color:  $primary-accent-color;
-  }
-  .container-logo:hover .header__logo--img{
-    stroke:  $primary-accent-color;
-  } 
 
   .header__title {
     display: none;
@@ -153,6 +155,11 @@ header {
   .header__navigation--library-btn:hover,
   .header__navigation--library-btn:focus {
     color: $primary-accent-color;
+  }
+
+  .disabled{
+    pointer-events: none;
+    color: #818181;
   }
   
   .header__autorisation-btn {
