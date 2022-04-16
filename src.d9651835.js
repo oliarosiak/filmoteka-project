@@ -150,4 +150,4 @@ const e=document.querySelector(".header");function d(){window.scrollY>60?e.class
 },{}],"Focm":[function(require,module,exports) {
 "use strict";require("./sass/main.scss"),require("./js/pagination"),require("./js/authFirebase"),require("./js/authModal"),require("./js/libraryButton"),require("./js/modal-team"),require("./js/fetch"),require("./js/render-сard"),require("./js/cardModal"),require("./js/realtimaDataBase"),require("./js/scroll-btn"),require("./js/clearRender"),require("./js/searchMovie"),require("./js/header-fixed");
 },{"./sass/main.scss":"clu1","./js/pagination":"o8lo","./js/authFirebase":"w9Hs","./js/authModal":"AUp6","./js/libraryButton":"wSgt","./js/modal-team":"O9Th","./js/fetch":"spyz","./js/render-сard":"hYIH","./js/cardModal":"NM8I","./js/realtimaDataBase":"UYQs","./js/scroll-btn":"iH5e","./js/clearRender":"mqQf","./js/searchMovie":"HUSp","./js/header-fixed":"ys5n"}]},{},["Focm"], null)
-//# sourceMappingURL=/filmoteka-project/src.e1c722fa.js.map
+//# sourceMappingURL=/filmoteka-project/src.d9651835.js.map
