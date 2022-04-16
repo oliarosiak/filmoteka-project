@@ -18,12 +18,6 @@
    }
 }
 
-.footer__text-left{
-   @media screen and (min-width: 768px){
-      margin-left: 4px;
-   }   
-}
-
 .footer__text-right{
    margin-right: 4px;
 }
@@ -47,10 +41,13 @@
 
 .box-text{
    @media screen and (min-width: 768px) {  
-      padding-top:0px ;      
+      padding-top: 0px;   
+      margin-left: 4px;
    }
    padding-top: 10px;
    display: flex;
+   align-items: center;
+   margin-left: 4px;
 }
 
 .footer__logo{
