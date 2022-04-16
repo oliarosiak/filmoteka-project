@@ -18,33 +18,33 @@ refs.library.addEventListener('click', clickButLibrary);
 
 function clickButHome (e){
     e.preventDefault()
-    refs.home.classList.toggle('current')
-    refs.library.classList.toggle('current')
-    refs.buttonLibrary.classList.toggle('visually-hidden')
-refs.input.classList.toggle('visually-hidden')
-refs.background.classList.toggle('header')
-refs.background.classList.toggle('library')
+    refs.home.classList.add('current')
+    refs.library.classList.remove('current')
+    refs.buttonLibrary.classList.add('visually-hidden')
+refs.input.classList.remove('visually-hidden')
+refs.background.classList.add('header')
+refs.background.classList.remove('library')
 }
 
 function clickButLibrary (e){
     e.preventDefault()
-    refs.library.classList.toggle('current')
-    refs.home.classList.toggle('current')
-    refs.input.classList.toggle('visually-hidden')
-    refs.buttonLibrary.classList.toggle('visually-hidden')
-refs.background.classList.toggle('library')
-refs.background.classList.toggle('header')
+    refs.library.classList.add('current')
+    refs.home.classList.remove('current')
+    refs.input.classList.add('visually-hidden')
+    refs.buttonLibrary.classList.remove('visually-hidden')
+refs.background.classList.add('library')
+refs.background.classList.remove('header')
 
 }
 
 function clickButQueue (){
-    refs.queue.classList.toggle('library__current')
-    refs.watched.classList.toggle('library__current')
+    refs.queue.classList.add('library__current')
+    refs.watched.classList.remove('library__current')
 };
 
 function clickButWatched (){
-    refs.watched.classList.toggle('library__current')
-    refs.queue.classList.toggle('library__current')
+    refs.watched.classList.add('library__current')
+    refs.queue.classList.remove('library__current')
 };
 
 
