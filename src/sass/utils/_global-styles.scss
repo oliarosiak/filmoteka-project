@@ -4,3 +4,10 @@ body {
     color: $primary-text-color; 
     background-color: $primary-background-color;
 }
+
+main {
+    margin-bottom: 100px;
+    @media screen and (min-width: 1024px) {
+        margin-bottom: 77px;
+    }
+}

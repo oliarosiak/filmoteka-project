@@ -1,3 +1,13 @@
+header {
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 32px;
+  }
+}
+
 .header {
   
     max-width: 320px;
@@ -70,7 +80,6 @@ a{
     margin-bottom: 60px;
   
     @media screen and (min-width: 768px) {
-      justify-content: flex-end;
       margin-bottom: 40px;
     }
   }
@@ -131,7 +140,7 @@ a{
   
   .header__navigation {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .header__navigation--home-btn {
@@ -303,4 +312,55 @@ a{
   height: 4px;
   background: $primary-accent-color;
   width: 0%;
+}
+
+// фіксований хедер за умови скролінгу
+
+.header--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: 100%;
+  background-color: $primary-text-color;
+
+  & > .header__container {
+      padding: 30px 20px;
+      @media screen and (min-width: 768px) {
+        padding: 30px 32px;
+      }
+      @media screen and (min-width: 1024px) {
+        // max-height: 77px;
+      }
+
+      & > .header__wrapper {
+        margin-bottom: 0;
+      }
+
+      & > .but__container {
+        display: none;
+        @media screen and (min-width: 768px) {
+          display: flex;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      & > #input {
+        display: none;
+        @media screen and (min-width: 768px) {
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      & > .auth {
+        display: none;
+      }
+  }
 }
