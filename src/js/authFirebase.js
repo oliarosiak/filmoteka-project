@@ -127,8 +127,7 @@ onAuthStateChanged(auth, user => {
     getFilmWatched(userId);
     getFilmQueue(userId);
     updateData(userId);
-    // показати кнопку Library
-    // refs.library.removeAttribute('disabled');
+    refs.library.classList.remove('disabled');
   } else {
     localStorage.setItem('User', JSON.stringify('noUser'));
     localStorage.setItem('UserFilmWatched', JSON.stringify('[]'));
