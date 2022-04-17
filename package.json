@@ -27,6 +27,7 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "basiclightbox": "^5.0.4",
     "firebase": "^9.6.10",
     "notiflix": "^3.2.5",
     "tui-pagination": "^3.4.1"
