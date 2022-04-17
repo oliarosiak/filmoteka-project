@@ -9,8 +9,11 @@ import './js/render-сard'; // HV
 // import './js/renderCard'; // HV
 import './js/cardModal';
 import './js/realtimaDataBase';
+import './js/fetch';
+import './js/triller';
 import './js/scroll-btn';
 import './js/clearRender';
 import './js/searchMovie';
 import './js/header-fixed';
 import './js/libraryRender';
+
