@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Заголовок страницы</title>
+    <title>Filmoteka</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,15 +16,17 @@
       integrity="sha512-ISS7cAi1PEhQ8jnbJpJZMd29NlhNj4AWYyLOSp2CE/CsHxTCu+r+t0D2yoJudVrd0/8fTVPUVDzY5Tvli75u/g=="
       crossorigin="anonymous"
     />
+    <link rel="shortcut icon" type="image/png" href="/filmoteka.png" />
   </head>
   <body>
     <!-- Так добавляются фрагменты в главные HTML-файлы страниц. -->
     <div class="wrapper">
-
-      <include src="./partials/header.html"></include>  
+      <include src="./partials/header.html"></include>
       <main>
-        <include src="./partials/main.html"></include>
-        <div id="pagination" class="tui-pagination"></div>
+        <section class="section">
+          <include src="./partials/film-list.html"></include>
+          <div id="pagination" class="tui-pagination"></div>
+        </section>
       </main>
 
       <include src="./partials/footer.html"></include>
@@ -33,7 +35,7 @@
       <include src="./partials/authModal.html"></include>
       <include src="./partials/modal-team.html"></include>
       <include src="./partials/cardModal.html"></include>
-
+      <include src="./partials/scroll-btn.html"></include>
     </div>
 
     <!-- Скрипт идёт последним в разметке. В нём уже подключен главный SASS-файл. -->

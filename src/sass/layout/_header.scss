@@ -1,59 +1,63 @@
+header {
+  width: 100%;
+  background-color: $primary-text-color;
+  margin-bottom: 20px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 60px;
+  }
+  @media screen and (min-width: 1024px) {
+    margin-bottom: 32px;
+  }
+}
+
 .header {
-  
-    max-width: 320px;
-  
-    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_home_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     
     @media screen and (min-width: 768px) {
-      max-width: 768px;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_home_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
-      max-width: 1024px;
-
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_home_bg-2x.jpg);
     }
   }
 
-
   .library {
-    max-width: 320px;
-  
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_library_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     background-position: center;
   
     @media screen and (min-width: 768px) {
-      max-width: 768px;
-  
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_library_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
-      max-width: 1024px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_library_bg-2x.jpg);
     }
   }
 
   .header__container{
+    max-height: 247px;
     padding-top: 44px;
     padding-bottom: 22px;
 
     @media screen and (min-width: 768px){
       padding-top: 40px;
       padding-bottom: 20px;
+      max-height: 228px;
+    }
+    @media screen and (min-width: 1024px){
+      max-height: 228px;
     }
   }
 
@@ -61,13 +65,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // margin-top: 44px;
     margin-bottom: 60px;
   
     @media screen and (min-width: 768px) {
-      justify-content: flex-end;
-      // margin-top: 40px;
       margin-bottom: 40px;
+    }
+  }
+  .container-logo{
+    
+        @media screen and (min-width: 768px) {
+          margin-right: 387px;
+    }
+  
+    @media screen and (min-width: 1024px) {
+      margin-right: 645px;
     }
   }
   
@@ -77,6 +88,15 @@
     @media screen and (min-width: 768px) {
       margin-right: auto;
     }
+  }
+
+  .header__logo:hover, .header__logo:focus{
+    color: $primary-accent-color; 
+  }
+
+  .header__logo:hover .header__logo--img,
+  .header__logo:focus .header__logo--img{
+    stroke: $primary-accent-color;
   }
   
   .header__logo--img {
@@ -92,14 +112,10 @@
       margin-right: 10px;
     }
   }
-  
-  .header__logo:hover .header__logo--img,
-  .header__logo:focus .header__logo--img {
-    stroke: $primary-accent-color;
-  }
-  
+
   .header__title {
     display: none;
+    cursor: pointer;
   
     @media screen and (min-width: 768px) {
       display: inline;
@@ -109,15 +125,10 @@
       text-transform: capitalize;
     }
   }
-  
-  .header__title:hover,
-  .header__title:focus {
-    color: $primary-accent-color;
-  }
-  
+    
   .header__navigation {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
   }
   
   .header__navigation--home-btn {
@@ -127,6 +138,7 @@
     color: $secondary-text-color;
     text-transform: uppercase;
   }
+
   
   .header__navigation--home-btn:hover,
   .header__navigation--home-btn:focus {
@@ -143,6 +155,11 @@
   .header__navigation--library-btn:hover,
   .header__navigation--library-btn:focus {
     color: $primary-accent-color;
+  }
+
+  .disabled{
+    pointer-events: none;
+    color: #818181;
   }
   
   .header__autorisation-btn {
@@ -165,11 +182,12 @@
     border-bottom: 3px solid;
     border-color: $primary-accent-color;
   }
-  .but__container{
+ .but__container{
     display: flex;
     justify-content: center;
-    align-items: center;
-  }
+    // align-items: center;
+    margin-bottom: -23px;
+  } 
   .button__library:not(:last-child){
     margin-right: 19.94px;
 
@@ -206,10 +224,6 @@
     filter: drop-shadow(0px 8px 43px rgba(255, 107, 1, 0.6));
     
   }
-
-.jsNone {
-display: none;  
-}
 
   .header__form {
     position: relative;
@@ -250,6 +264,7 @@ display: none;
   
   .header__form--button {
     background-color: transparent;
+    cursor:default;
   }
   
   .header__form--img {
@@ -265,22 +280,76 @@ display: none;
     display: flex;
     justify-content: flex-end;
   }
-  .auth__list-item {
-    padding: 10px 0;
-  }
+
   .auth__list-item:nth-child(2) {
     margin-left: 35px;
     width: 68px; 
   }
 
-  .header-outer {
-  position: sticky;
+.progress-container {
+  width: 100%;
+  height: 4px;
+  background: #0c0c0c;
+  position: fixed;
+  top: 0;
 }
-.header-inner {
-  position: sticky;
-  top: 0; 
+
+.progress-bar {
+  height: 4px;
+  background: $primary-accent-color;
+  width: 0%;
 }
-.header-outer {
-  position: sticky;
-  top: -180px;
+
+// фіксований хедер за умови скролінгу
+
+.header--fixed {
+  position: fixed;
+  top: -100px;
+  background-color: $primary-text-color;
+  transform: translate(0, 100px);
+  transition: transform 0.5s linear;
+
+  &>.header__container {
+    padding: 30px 20px;
+
+    @media screen and (min-width: 768px) {
+      padding: 30px 32px;
+    }
+
+    @media screen and (min-width: 1024px) {
+      // max-height: 77px;
+    }
+
+    &>.header__wrapper {
+      margin-bottom: 0;
+    }
+
+    &>.but__container {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &>#input {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &>.auth {
+      display: none;
+    }
+  }
 }

@@ -15,6 +15,7 @@
 @import './components/container';
 @import './components/backdrop';
 
+
 // Підключення файлів стилів для основних компонентів сторінки
 @import './layout/header';
 @import './layout/modal-team';
@@ -23,6 +24,7 @@
 @import './layout/filmlist';
 @import './layout/filmcard';
 @import './layout/pagination';
-@import './layout/filmlibrary';
+@import './layout/section';// @import './layout/filmlibrary';hh //delete
 @import './layout/card-modal';
 @import './layout/triller-btn';
+@import './layout/scroll-btn';

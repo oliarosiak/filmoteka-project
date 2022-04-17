@@ -1,12 +1,11 @@
 .modal-team {
     position: fixed;
-    top: 0;
+    top: 50%;
     left: 50%;
     width: 240px;
     height: 95vh;
-    margin-top: 20px;
     overflow-y: scroll;
-    transform: translate(-50%, 0) scale(1);
+    transform: translate(-50%, -50%) scale(1);
     transition: transform $primary-animation,
     opacity $primary-animation;
     padding: 8px 20px 40px 20px;
@@ -19,15 +18,12 @@
 
     @media screen and (min-width: 768px) {
         width: 704px;
-        height: 68vh;
-        margin-top: 214px;
+        height: 80vh;
         padding: 8px 36px 40px 36px;
     }
 
     @media screen and (min-width: 1024px) {
         width: 814px;
-        height: 60vh;
-        margin-top: 151px;
         padding: 8px 16px 40px 16px;
     }
 }

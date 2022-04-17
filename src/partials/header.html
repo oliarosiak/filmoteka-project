@@ -1,18 +1,19 @@
-<header class="library" id="background">
-    <div class="container header-inner header__container">
+<header class="header scroll" id="background">
+    <div class="container header__container">
       <div class="header__wrapper">
-        <button class="header__logo" type="button">
+        <div class="container-logo">
+          <a href="" class="header__logo  header__title">
           <svg class="header__logo--img">
-            <use href="./images/sprite.svg#icon-film"></use>
-          </svg>
-          <span class="header__title">filmoteka</span>
-        </button>
+          <use href="./images/sprite.svg#icon-film"></use>
+          </svg>filmoteka
+        </a>
+        </div>
         <nav class="header__navigation">
-          <button class="header__navigation--home-btn current" type="button" id="home">home</button>
-          <button class="header__navigation--library-btn " type="button" id="library">my library</button>
+          <a href="" class="header__navigation--home-btn current" id="home">Home</a>
+          <a href="" class="header__navigation--library-btn disabled" id="library">My Library</a>
         </nav>
       </div>
-      <div class="but__container jsNone">
+      <div class="but__container visually-hidden">
         <button class="button__library btn__style library__current" type="button" id="watched">WATCHED</button>
         <button class="button__library btn__style " type="button" id="queue">QUEUE</button>
       </div>
@@ -25,7 +26,7 @@
           autocomplete="off"
           placeholder="Search movies"
         />
-        <button class="header__form--button" type="submit">
+        <button class="header__form--button" type="submit" disabled>
           <svg class="header__form--img">
             <use href="./images/sprite.svg#icon-search"></use>
           </svg>
@@ -53,4 +54,6 @@
         </ul>
       </div>
     </div>
+     <div class="progress-container">
+    <div class="progress-bar " id="myBar"></div>
   </header>
