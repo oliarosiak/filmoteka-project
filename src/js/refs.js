@@ -27,9 +27,5 @@ export const refs = {
   modalTeam: document.querySelector('.backdrop-team'),
 
   teamContainer: document.querySelector('.team'),
-
-  //-----HV
   homeFilmList: document.querySelector('.film-list'),
-  // libraryFilmList: document.querySelector('.film-library'), //delete
-  //-----HV
 };
