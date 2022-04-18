@@ -16,4 +16,5 @@ import './js/clearRender';
 import './js/searchMovie';
 import './js/header-fixed';
 import './js/libraryRender';
-import './js/searchAlert'
+import './js/searchAlert';
+import './js/loading';
