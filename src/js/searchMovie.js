@@ -8,7 +8,7 @@ export let search = 'trending/movie/day';
 export let query = '';
 export let filmName = '';
 
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 610;
 const inputValue = document.querySelector('.header__form--input');
 const container = document.getElementById('pagination');
 

@@ -229,11 +229,11 @@ header {
     position: relative;
     display: flex;
     border-bottom: 0.5px solid $secondary-background-color;
-    // margin-bottom: 92px;
+    margin-bottom: 16px;
   
     @media screen and (min-width: 768px) {
       width: 336px;
-      margin: 0 auto;
+      margin: 0 auto 20px;
     }
   }
   
@@ -271,9 +271,19 @@ header {
     width: 12px;
     height: 12px;
   }
+
+  .header__alert{
+    @include font(normal, 14px, 400, 16px, normal);
+    color: $error-text-color;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+      justify-content: center;      
+    }
+  }
   
   .auth {
-    margin-top: 40px;
+    margin-top: 20px;
   }
   
   .auth__list {
