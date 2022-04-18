@@ -1,18 +1,29 @@
 import axios from 'axios';
-import { search } from './searchMovie';
-import { query } from './searchMovie';
 import { filmName } from './searchMovie';
+import { alertMessage } from './searchAlert';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const KEY = '084ca305e7a4e4bb3dbbc7b67e975385';
 
 export async function getMovies(page) {
   const response = await axios.get(
-    `${BASE_URL}${search}?api_key=${KEY}&language=en-US${query}${filmName}&page=${page}`,
+    `${BASE_URL}trending/movie/day?api_key=${KEY}&language=en-US&page=${page}`,
   );
   try {
     const data = response.data;
-    // console.log(data);
+    return data;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function fetchSearchMovie(page) {
+  const response = await axios.get(
+    `${BASE_URL}search/movie?api_key=${KEY}&language=en-US&query=${filmName}&page=${page}`,
+  );
+  try {
+    const data = response.data;
+    alertMessage(data);
     return data;
   } catch (error) {
     console.log(error);
