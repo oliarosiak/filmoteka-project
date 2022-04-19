@@ -93,17 +93,21 @@ function watchTrailer(e) {
     }
 
     onfetchTrailers(e.target.closest('.card__link').id)
-        .then(renderTrailer)
+        .then(data => {
+            trailerRender(data);
+        })
         .catch(error => {
             console.log(error);
         });
-    }
+}
 
 // movie by ID /////
 // onfetchTrailers()
 // Render trailer modal card
 
-function renderTrailer(data) {
+/**
+ * 
+ * function renderTrailer(data) {
     let key = '';
     data.forEach(obj => {
         if (obj.name.includes('Official')) {
@@ -127,14 +131,14 @@ function closeTrailerByEsc(e) {
 // trailer key link YouTube
 function creatTrailerLink(key) {
     trailer = basicLightbox.create(`
-        <iframe width="320" height="240"
+        <iframe type="text/html" width="640" height="360"
         src='https://www.youtube.com/embed/${key}'
         frameborder="0" allow="accelerometer; autoplay; 
         encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
         `);
 
     //ad listener and time = 200
-    const trailerBtn = document.querySelector('.card-modal__banner');
+    const trailerBtn = document.querySelector('.card-modal__image-box');
     trailerBtn.addEventListener('click', showTrailer);
     
     
@@ -142,4 +146,34 @@ function creatTrailerLink(key) {
     function showTrailer() {
         trailer.show();
     }
+}
+ */
+
+function trailerRender(data) {
+    const btnModalTrailer = document.querySelector('.card-modal__image-box');
+
+    const instance = basicLightbox.create(
+        `<iframe class="iframe" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay'
+            src="https://www.youtube.com/embed/${data.results[0].key}?autoplay=1" >
+        </iframe>`,
+        {
+            onShow: instance => {
+                instance.element().onclick = instance.close;
+                document.addEventListener('keydown', onEscClose);
+            },
+        },
+        {
+            onClose: instance => {
+                document.removeEventListener('keydown', onEscClose);
+                console.log(instance);
+            },
+        });
+    function onEscClose(event) {
+        if (event.code === 'Escape') {
+            instance.close();
+        }
+    }
+    btnModalTrailer.addEventListener('click', () => {
+        instance.show();
+    });
 }
