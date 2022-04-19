@@ -1,14 +1,14 @@
-const headerFixed = document.querySelector('#background');
+import { refs } from './refs';
 
 document.addEventListener('scroll', onHeaderFixed);
 
 function onHeaderFixed() {
   if (
-    window.scrollY > headerFixed.clientHeight &&
-    document.documentElement.scrollHeight - headerFixed.clientHeight > 800
+    window.scrollY > refs.background.clientHeight &&
+    document.documentElement.scrollHeight - refs.background.clientHeight > 800
   ) {
-    headerFixed.classList.add('header--fixed');
+    refs.background.classList.add('header--fixed');
   } else {
-    headerFixed.classList.remove('header--fixed');
+    refs.background.classList.remove('header--fixed');
   }
 }
