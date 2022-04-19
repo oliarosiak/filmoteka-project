@@ -1,6 +1,8 @@
 import { getFilmById } from './fetch';
 import { renderCardModalMurkup } from './cardModalMurkup';
 
+
+
 const openModal = document.querySelector('.film-list');
 const backdropCardModal = document.querySelector('.backdrop--card');
 const boxCardModal = document.querySelector('.card-modal__container');
@@ -12,7 +14,7 @@ const buttonCloseModal = document.querySelector('.card-modal__button-close');
 // console.log(boxCardModal);
 
 openModal.addEventListener('click', openModalCard);
-// buttonCloseModal.addEventListener("click",onCloseButtonClick);
+buttonCloseModal.addEventListener("click",onCloseButtonClick);
 
 function openModalCard(e) {
   const curLink = e.target.closest('.card__link');
@@ -34,18 +36,32 @@ function openModalCard(e) {
 }
 
 //-------- Кнопка закриття
-// МАРТА, якщо ти не заливала код на кнопку закриття модалки- то цей код вроді робочий)
 
-// function onCloseButtonClick() {
-//   const backdropCardModal = document.querySelector('.backdrop--card');
-//   const cardModalInfo = document.querySelector('.card-modal__information-box');
-//   const cardModalImg = document.querySelector('.card-modal__image-box');
+document.addEventListener('keydown', onEscBtnPress);
+document.addEventListener('click', onBackdropClick);
 
-//   cardModalImg.remove();
-//   cardModalInfo.remove();
+function onCloseButtonClick() {
+  const backdropCardModal = document.querySelector('.backdrop--card');
+  const cardModalInfo = document.querySelector('.card-modal__information-box');
+  const cardModalImg = document.querySelector('.card-modal__image-box');
 
-//   backdropCardModal.classList.add('is-hidden');
+  cardModalImg.remove();
+  cardModalInfo.remove();
 
-//   document.body.style.overflow = 'scroll';
+  backdropCardModal.classList.add('is-hidden');
 
-// }
+  document.body.style.overflow = 'scroll';
+  
+}
+
+function onEscBtnPress(e) {
+  if (e.code === 'Escape') {
+    onCloseButtonClick();
+  }
+}
+
+function onBackdropClick(e) {
+  if (e.target === backdropCardModal) {
+    onCloseButtonClick();
+  }
+}
