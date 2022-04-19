@@ -1,20 +1,8 @@
 import { getFilmById } from './fetch';
 import { renderCardModalMurkup } from './cardModalMurkup';
+import { refs } from './refs';
 
-
-
-const openModal = document.querySelector('.film-list');
-const backdropCardModal = document.querySelector('.backdrop--card');
-const boxCardModal = document.querySelector('.card-modal__container');
-
-const buttonCloseModal = document.querySelector('.card-modal__button-close');
-
-// console.log(openModal);
-// console.log(backdropCardModal);
-// console.log(boxCardModal);
-
-openModal.addEventListener('click', openModalCard);
-buttonCloseModal.addEventListener("click",onCloseButtonClick);
+refs.homeFilmList.addEventListener('click', openModalCard);
 
 function openModalCard(e) {
   const curLink = e.target.closest('.card__link');
@@ -26,42 +14,31 @@ function openModalCard(e) {
   getFilmById(curFilm)
     .then(data => {
       // console.log(data);
-      boxCardModal.insertAdjacentHTML('beforeend', renderCardModalMurkup(data));
+      refs.boxCardModal.insertAdjacentHTML('beforeend', renderCardModalMurkup(data));
     })
     .catch(e => {
       console.log(e);
     });
 
-  backdropCardModal.classList.remove('is-hidden');
-}
-
-//-------- Кнопка закриття
-
-document.addEventListener('keydown', onEscBtnPress);
-document.addEventListener('click', onBackdropClick);
-
-function onCloseButtonClick() {
-  const backdropCardModal = document.querySelector('.backdrop--card');
-  const cardModalInfo = document.querySelector('.card-modal__information-box');
-  const cardModalImg = document.querySelector('.card-modal__image-box');
-
-  cardModalImg.remove();
-  cardModalInfo.remove();
-
-  backdropCardModal.classList.add('is-hidden');
-
   document.body.style.overflow = 'scroll';
-  
+  refs.backdropCardModal.classList.remove('is-hidden');
+
+  refs.buttonCloseModal.addEventListener('click', closeModalCard);
+  refs.backdropCardModal.addEventListener('click', closeModalCard);
+  window.addEventListener(`keydown`, closeModalCard);
 }
 
-function onEscBtnPress(e) {
-  if (e.code === 'Escape') {
-    onCloseButtonClick();
-  }
-}
+function closeModalCard(e) {
+  if (
+    e.target === refs.backdropCardModal ||
+    e.currentTarget === refs.buttonCloseModal ||
+    e.code === 'Escape'
+  ) {
+    refs.backdropCardModal.classList.add('is-hidden');
+    refs.boxCardModal.innerHTML = '';
 
-function onBackdropClick(e) {
-  if (e.target === backdropCardModal) {
-    onCloseButtonClick();
+    refs.buttonCloseModal.removeEventListener('click', closeModalCard);
+    refs.backdropCardModal.removeEventListener('click', closeModalCard);
+    window.removeEventListener('keydown', closeModalCard);
   }
 }
