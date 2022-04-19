@@ -57,6 +57,13 @@ header {
   .header__container {
     padding-top: 40px;
     padding-bottom: 20px;
+      min-height: 230px;      
+    @media screen and (min-width: 768px) {
+      min-height: 215px;
+    }      
+    @media screen and (min-width: 1024px) {
+      min-height: 216px;
+    }
   }
 
   .header__wrapper {
