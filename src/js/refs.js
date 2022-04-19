@@ -22,11 +22,14 @@ export const refs = {
   background: document.querySelector('#background'),
   headerScroll: document.querySelector('.scroll'),
   progressContainer: document.querySelector('.progress-container'),
-  //=====================================================//
+  //=================Змiннi до Modal-Team==================//
   openModalTeamBtn: document.querySelector('.footer-link'),
   closeModalTeamBtn: document.querySelector('.modal-team__close-btn'),
   modalTeam: document.querySelector('.backdrop-team'),
-
   teamContainer: document.querySelector('.team'),
+  //=================Змiннi до Modal-Card==================//
   homeFilmList: document.querySelector('.film-list'),
+  backdropCardModal: document.querySelector('.backdrop--card'),
+  boxCardModal: document.querySelector('.card-modal__container'),
+  buttonCloseModal: document.querySelector('.card-modal__button-close'),
 };
