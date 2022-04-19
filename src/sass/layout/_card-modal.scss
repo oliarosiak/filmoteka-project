@@ -96,16 +96,20 @@
 .card-modal__banner {
     height: 100%;
     width: 100%;
+    object-fit: cover;
     border-radius: 5px;
 }
 .card-modal__information-box {
     margin-top: 20px;
+    width: 240px;
     @media screen and (min-width: 768px) {
         margin-left: 68px;
         margin-top: 0px;
+        width: 264px;
     }
     @media screen and (min-width: 1024px) {
         margin-left: 16px;
+        width: 391px;
         
     }
 }
@@ -139,10 +143,17 @@
     text-transform: uppercase;
 }
 .card-modal__wrapper-value--size {
-    text-transform: none;
-   
+    text-transform: none; 
 }
-
+.card-modal__wrapper-value--color {
+    background-color:$secondary-accent-color;
+    color: $secondary-text-color;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 5px;
+}
 .card-modal__about-title {
     margin-top: 20px;
     margin-bottom: 8px;
@@ -159,39 +170,41 @@
 
     
 }
-.card-modal__button-add-watched {
+.card-modal__button-add--size {
     
-    width: 110px;
-    height: 44px;
-    @include font(normal, 12px, 500, 16px, normal);
     
-    background-color:$secondary-accent-color;
-    color: $secondary-text-color;
     
     margin-right: 20px;
     padding: 6px 27px 6px 27px;
     
-    text-align: center;
-    text-transform: uppercase;
-    border-radius: 5px;
+    
+
+    
     @media screen and (min-width: 768px) {
         padding: 0px;
-        width: 125px;
+        
     }
-    @media screen and (min-width: 1024px) {
-        width: 136px;
-    }
+    
 }
-.card-modal__button-add-queue {
+.card-modal__button-add {
     width: 110px;
     height: 44px;
     @include font(normal, 12px, 500, 16px, normal);
     
     border: 1px solid $primary-text-color;
-    background-color: white;
+    background-color:$secondary-text-color;
+
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
+
+    transition: background-color  $primary-animation, color $primary-animation;
+    &:hover,
+    &:focus {
+        background-color: $primary-accent-color;
+        color: $secondary-text-color;
+        border: none;
+    }
     @media screen and (min-width: 768px) {
         width: 125px;
     }
