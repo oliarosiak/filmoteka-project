@@ -15,26 +15,24 @@ inputValue.addEventListener('input', debounce(searchMovie, DEBOUNCE_DELAY));
 export function searchMovie(e) {
   filmName = e.target.value;
   if (filmName.length > 0) {
-    fetchSearchMovie(filmName)
-      .then(data => {
-        data.total_results <= 20
-          ? container.classList.add('is-hidden')
-          : container.classList.remove('is-hidden');
-        pagination.reset(data.total_results);
-        renderCardMurkup(data);
-        pagination.on('beforeMove', event => {
-          const currentPage = event.page;
-          fetchSearchMovie(currentPage).then(data => {
-            clearRender();
-            renderCardMurkup(data);
-            window.scrollTo({
-              top: 0,
-              left: 0,
-              behavior: 'smooth',
-            });
+    fetchSearchMovie(filmName).then(data => {
+      data.total_results <= 20
+        ? container.classList.add('is-hidden')
+        : container.classList.remove('is-hidden');
+      pagination.reset(data.total_results);
+      renderCardMurkup(data);
+      pagination.on('beforeMove', event => {
+        const currentPage = event.page;
+        fetchSearchMovie(currentPage).then(data => {
+          clearRender();
+          renderCardMurkup(data);
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
           });
         });
-      })
-      .then(foo(data));
+      });
+    });
   }
 }
