@@ -2,7 +2,9 @@ import { refs } from './refs';
 import { genres } from './genres.json';
 
 const BASE_IMG_URL = 'http://image.tmdb.org/t/p/w300';
-// J.R.R. Tolkien: The Origin Of The Rings
+const BASE_IMG_NO_POSTER = 'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/poster.jpg';
+
+
 //функція рендеру карток фільму в HOME
 export function renderCardMurkup(data) {
   const galleryMarkup = data.results
@@ -14,12 +16,10 @@ export function renderCardMurkup(data) {
         .map(element => element.name)
         .join(', ');
       title = title.length > 37 ? `${title.slice(0, 40)}...` : title;
-      // let imgUrl = ''https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/poster.jpg'';
-      //  let imgUrl = poster_path ? `${BASE_IMG_URL}${poster_path}` : "./src/images/no-poster.jpg";
-      // console.log(imgUrl);
+      const imgUrl = poster_path === null ? BASE_IMG_NO_POSTER : `${BASE_IMG_URL}${poster_path}`;
       return `<li class="card">
                     <a href="#${id}" class="card__link" id="${id}">
-                        <img class="card__img" src="${BASE_IMG_URL}${poster_path}" alt="${title}"/>
+                        <img class="card__img" src="${imgUrl}" alt="${title}"/>
                         <div class="card__information">
                             <h2 class="card__name">${title}</h2>
                             <div class="card__inf">
@@ -40,9 +40,11 @@ export function renderCardMurkup(data) {
 export function renderCardMurkupLibreary(data) {
   const galleryMarkupLibreary = data
     .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
+      title = title.length > 37 ? `${title.slice(0, 40)}...` : title;
+      const imgUrl = poster_path === null ? BASE_IMG_NO_POSTER : `${BASE_IMG_URL}${poster_path}`;
       return `<li class="card">
                     <a href="#${id}" class="card__link" id="${id}">
-                        <img class="card__img" src="${BASE_IMG_URL}${poster_path}" alt="${title}" />
+                        <img class="card__img" src="${imgUrl}" alt="${title}" />
                         <div class="card__information">
                             <h2 class="card__name">${title}</h2>
                             <div class="card__inf">   
@@ -56,5 +58,5 @@ export function renderCardMurkupLibreary(data) {
                 </li>`;
     })
     .join('');
-  refs.homeFilmList.insertAdjacentHTML('beforeend', galleryMarkupLibreary); // змінено на refs.homeFilmList
+  refs.homeFilmList.insertAdjacentHTML('beforeend', galleryMarkupLibreary);
 }
