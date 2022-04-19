@@ -2,9 +2,15 @@ import { refs } from './refs';
 import { renderCardMurkupLibreary } from './render-сard';
 import { clearRender } from './clearRender';
 
+const container = document.getElementById('pagination');
+
 function watchedRender() {
   clearRender();
   const watched = JSON.parse(localStorage.getItem('UserFilmWatched'));
+
+  watched.length <= 20
+    ? container.classList.add('is-hidden')
+    : container.classList.remove('is-hidden');
 
   renderCardMurkupLibreary(watched);
 }
