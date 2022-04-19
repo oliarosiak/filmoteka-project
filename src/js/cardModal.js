@@ -15,7 +15,7 @@ function openModalCard(e) {
   getFilmById(curFilm)
     .then(data => {
       // console.log(data);
-      refs.boxCardModal.insertAdjacentHTML('beforeend', renderCardModalMurkup(data));
+      refs.boxCardModal.insertAdjacentHTML('afterbegin', renderCardModalMurkup(data));
     })
     .catch(e => {
       console.log(e);
