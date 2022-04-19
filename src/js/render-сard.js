@@ -1,9 +1,9 @@
 import { refs } from './refs';
 import { genres } from './genres.json';
 
-const BASE_IMG_URL = 'http://image.tmdb.org/t/p/w300';
-const BASE_IMG_NO_POSTER = 'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/poster.jpg';
-
+const BASE_IMG_URL = 'https://image.tmdb.org/t/p/w300';
+const BASE_IMG_NO_POSTER =
+  'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/poster.jpg';
 
 //функція рендеру карток фільму в HOME
 export function renderCardMurkup(data) {
@@ -24,7 +24,11 @@ export function renderCardMurkup(data) {
                             <h2 class="card__name">${title}</h2>
                             <div class="card__inf">
                             <p class="card__genre">${genreName}</p>
-                            ${genreName&&release_date ? `<p class="card__genre">&nbsp;|&nbsp;</p>` : ''}
+                            ${
+                              genreName && release_date
+                                ? `<p class="card__genre">&nbsp;|&nbsp;</p>`
+                                : ''
+                            }
                             <p class="card__genre">${release_date.slice(0, 4)}</p>    
                             </div>
                         </div>
@@ -49,8 +53,15 @@ export function renderCardMurkupLibreary(data) {
                             <h2 class="card__name">${title}</h2>
                             <div class="card__inf">   
                             <p class="card__genre">${genres.name}</p>
-                            ${genres.name&&release_date ? `<p class="card__genre">&nbsp;|&nbsp;</p>` : ''}
-                            <p class="card__genre">${release_date.slice(0, 4)}</p>                        
+                            ${
+                              genres.name && release_date
+                                ? `<p class="card__genre">&nbsp;|&nbsp;</p>`
+                                : ''
+                            }
+                            <p class="card__genre">${release_date.slice(
+                              0,
+                              4,
+                            )}</p>                        
                             <p class="card__rating" > ${vote_average}</p>
                             </div>
                         </div>
