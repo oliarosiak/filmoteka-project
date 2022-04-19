@@ -11,54 +11,52 @@ header {
 }
 
 .header {
+  width: 320px;
+  margin: 0 auto;
      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_home_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     
     @media screen and (min-width: 768px) {
+      width: 768px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_home_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
+      width: 1024px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_home_bg-2x.jpg);
     }
   }
 
   .library {
+    width: 320px;
+    margin: 0 auto;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
       url(../images/header/mobile_library_bg-2x.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
   
     @media screen and (min-width: 768px) {
+      width: 768px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/tablet_library_bg-2x.jpg);
     }
   
     @media screen and (min-width: 1024px) {
+      width: 1024px;
       background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
         url(../images/header/desktop_library_bg-2x.jpg);
     }
   }
 
-  .header__container{
-    max-height: 247px;
-    padding-top: 44px;
-    padding-bottom: 22px;
-
-    @media screen and (min-width: 768px){
-      padding-top: 40px;
-      padding-bottom: 20px;
-      max-height: 228px;
-    }
-    @media screen and (min-width: 1024px){
-      max-height: 228px;
-    }
+  .header__container {
+    padding-top: 40px;
+    padding-bottom: 20px;
   }
 
   .header__wrapper {
@@ -71,38 +69,47 @@ header {
       margin-bottom: 40px;
     }
   }
-  .container-logo{
-    
-        @media screen and (min-width: 768px) {
-          margin-right: 387px;
-    }
-  
-    @media screen and (min-width: 1024px) {
-      margin-right: 645px;
-    }
-  }
-  
+
   .header__logo {
-    background-color: transparent;
-  
-    @media screen and (min-width: 768px) {
-      margin-right: auto;
-    }
+  display: flex;
+  align-items: center;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 387px;
   }
 
-  .header__logo:hover, .header__logo:focus{
-    color: $primary-accent-color; 
+  @media screen and (min-width: 1024px) {
+    margin-right: 645px;
   }
 
-  .header__logo:hover .header__logo--img,
-  .header__logo:focus .header__logo--img{
+  &:hover > .header__logo--img,
+  &:focus > .header__logo--img {
     stroke: $primary-accent-color;
   }
-  
+
+  &:hover > .header__logo--text,
+  &:focus > .header__logo--text {
+    color: $primary-accent-color;
+  }
+}
+
+.header__logo--text {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline;
+    @include font(normal, 30px, 500, 35px, normal);
+    color: $secondary-text-color;
+    text-transform: capitalize;
+    transition: color $primary-animation, stroke $primary-animation;
+  }
+}
+
   .header__logo--img {
     stroke: #818181;
     height: 24px;
     width: 24px;
+    transition: stroke $primary-animation, color $primary-animation;
   
     @media screen and (min-width: 768px) {
       margin-right: 8px;
@@ -112,20 +119,7 @@ header {
       margin-right: 10px;
     }
   }
-
-  .header__title {
-    display: none;
-    cursor: pointer;
-  
-    @media screen and (min-width: 768px) {
-      display: inline;
-      @include font(normal, 30px, 500, 35px, normal);
-      background-color: transparent;
-      color: $secondary-text-color;
-      text-transform: capitalize;
-    }
-  }
-    
+   
   .header__navigation {
     display: flex;
     align-items: flex-start;
@@ -283,7 +277,7 @@ header {
   }
   
   .auth {
-    margin-top: 20px;
+    margin-top: 40px;
   }
   
   .auth__list {
@@ -315,9 +309,15 @@ header {
 .header--fixed {
   position: fixed;
   top: -100px;
-  background-color: $primary-text-color;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(117deg, rgba(0, 0, 0, 1) 0%, rgba(36, 34, 32, 1) 58%, rgba(24, 22, 21, 1) 100%);
   transform: translate(0, 100px);
   transition: transform 0.5s linear;
+
+  &.library {
+    background: linear-gradient(117deg, rgba(0, 0, 0, 1) 0%, rgba(77, 1, 11, 1) 71%, rgba(42, 40, 40, 1) 100%);
+  }
 
   &>.header__container {
     padding: 30px 20px;
