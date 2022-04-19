@@ -83,11 +83,11 @@ header {
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    margin-right: 387px;
+    margin-right: 317px;
   }
 
   @media screen and (min-width: 1024px) {
-    margin-right: 645px;
+    margin-right: 565px;
   }
 
   &:hover > .header__logo--img,
@@ -162,6 +162,18 @@ header {
   .disabled{
     pointer-events: none;
     color: #818181;
+  }
+
+  .header__toggle{
+    background-color: transparent;
+    // margin-left: 40px;
+  }
+
+  .header__toggle--img{
+    width: 24px;
+    height: 24px;
+
+    fill: $primary-accent-color
   }
   
   .header__autorisation-btn {
