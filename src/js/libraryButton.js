@@ -19,6 +19,7 @@ refs.library.addEventListener('click', clickButLibrary);
 function clickButHome(e) {
   e.preventDefault();
   location.reload();
+  refs.pagination.classList.remove('is-hidden');
   refs.home.classList.add('current');
   refs.library.classList.remove('current');
   refs.buttonLibrary.classList.add('visually-hidden');
@@ -29,6 +30,7 @@ function clickButHome(e) {
 
 function clickButLibrary(e) {
   e.preventDefault();
+  refs.pagination.classList.add('is-hidden');
   refs.library.classList.add('current');
   refs.home.classList.remove('current');
   refs.input.classList.add('visually-hidden');
