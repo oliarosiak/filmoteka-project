@@ -5,15 +5,14 @@ const openModal = document.querySelector('.film-list');
 const backdropCardModal = document.querySelector('.backdrop--card');
 const boxCardModal = document.querySelector('.card-modal__container');
 
-
-const buttonCloseModal = document.querySelector(".card-modal__button-close");
+const buttonCloseModal = document.querySelector('.card-modal__button-close');
 
 // console.log(openModal);
 // console.log(backdropCardModal);
 // console.log(boxCardModal);
 
 openModal.addEventListener('click', openModalCard);
-buttonCloseModal.addEventListener("click",onCloseButtonClick);
+// buttonCloseModal.addEventListener("click",onCloseButtonClick);
 
 function openModalCard(e) {
   const curLink = e.target.closest('.card__link');
@@ -35,7 +34,7 @@ function openModalCard(e) {
 }
 
 //-------- Кнопка закриття
-// МАРТА, якщо ти не заливала код на кнопку закриття модалки- то цей код вроді робочий) 
+// МАРТА, якщо ти не заливала код на кнопку закриття модалки- то цей код вроді робочий)
 
 // function onCloseButtonClick() {
 //   const backdropCardModal = document.querySelector('.backdrop--card');
@@ -48,6 +47,5 @@ function openModalCard(e) {
 //   backdropCardModal.classList.add('is-hidden');
 
 //   document.body.style.overflow = 'scroll';
-  
-// }
 
+// }
