@@ -1,4 +1,5 @@
 export const refs = {
+  backdrop: document.querySelector('.backdrop'),
   // всі змінні для authModal
   openRegisterForm: document.querySelector('#openRegisterForm'),
   registerForm: document.querySelector('#registerForm'),
