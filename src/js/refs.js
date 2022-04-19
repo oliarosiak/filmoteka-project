@@ -8,8 +8,8 @@ export const refs = {
   signInForm: document.querySelector('#signInForm'),
   signInModal__closebtn: document.querySelector('.signInModal__closebtn'),
   signOutBtn: document.querySelector('#signOutBtn'),
-  addToWatchedBtn: document.querySelector('.card-modal__button-add-watched'),
-  addToQueueBtn: document.querySelector('.card-modal__button-add-queue'),
+  addToWatchedBtn: document.querySelector('#watchedBtn'),
+  addToQueueBtn: document.querySelector('#queueBtn'),
   // ==========
 
   //=================Змiннi до Header==================//
