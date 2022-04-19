@@ -1,6 +1,7 @@
 import { getFilmById } from './fetch';
 import { renderCardModalMurkup } from './cardModalMurkup';
 import { refs } from './refs';
+import onTrailerClick from './trailer'
 
 refs.homeFilmList.addEventListener('click', openModalCard);
 
@@ -27,6 +28,8 @@ function openModalCard(e) {
   refs.backdropCardModal.addEventListener('click', closeModalCard);
   window.addEventListener(`keydown`, closeModalCard);
 }
+
+onTrailerClick();
 
 function closeModalCard(e) {
   if (
