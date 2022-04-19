@@ -56,14 +56,11 @@ header {
   }
 
   .header__container {
-    padding-top: 40px;
-    padding-bottom: 20px;
+    padding-top: 44px;
+    padding-bottom: 24px;
       min-height: 230px;      
     @media screen and (min-width: 768px) {
       min-height: 215px;
-    }      
-    @media screen and (min-width: 1024px) {
-      min-height: 216px;
     }
   }
 
@@ -71,10 +68,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 60px;
+    margin-bottom: 50px;
   
     @media screen and (min-width: 768px) {
-      margin-bottom: 40px;
+      margin-bottom: 30px;
     }
   }
 
@@ -196,12 +193,14 @@ header {
     border-bottom: 3px solid;
     border-color: $primary-accent-color;
   }
+
  .but__container{
     display: flex;
     justify-content: center;
     // align-items: center;
-    margin-bottom: -23px;
+    margin-bottom: -22px;
   } 
+
   .button__library:not(:last-child){
     margin-right: 19.94px;
 
@@ -212,6 +211,7 @@ header {
     margin-right: 32px;
     }
   }
+
   .btn__style{
     width: 129.53px;
     height: 44px;
@@ -232,6 +232,7 @@ header {
       height: 42px;
     }
   }
+
   .library__current{
     border: none;
     background-color: $secondary-accent-color;
@@ -286,18 +287,24 @@ header {
     height: 12px;
   }
 
-  .header__alert{
+  .header__alert {
+    position: absolute;
+    max-width: 280px;
     @include font(normal, 14px, 400, 16px, normal);
     color: $error-text-color;
 
     @media screen and (min-width: 768px) {
-      display: flex;
-      justify-content: center;      
+      max-width: 704px;
+      left: 50%;
+      transform: translate(-50%, 0);
+    }
+    @media screen and (min-width: 1024px) {
+      max-width: 960px;
     }
   }
   
   .auth {
-    margin-top: 40px;
+    margin-top: 60px;
   }
   
   .auth__list {
@@ -354,7 +361,7 @@ header {
     &>.but__container {
       display: none;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         display: flex;
         position: absolute;
         top: 50%;
@@ -366,12 +373,15 @@ header {
     &>#input {
       display: none;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: 1024px) {
         display: block;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+        &>.header__alert {
+          position: relative;
+        }
       }
     }
 
