@@ -11,7 +11,7 @@ export const refs = {
   addToWatchedBtn: document.querySelector('#watchedBtn'),
   addToQueueBtn: document.querySelector('#queueBtn'),
   // ==========
-
+  pagination: document.getElementById('pagination'),
   //=================Змiннi до Header==================//
   queue: document.querySelector('#queue'),
   watched: document.querySelector('#watched'),
