@@ -1,5 +1,5 @@
 import { refs } from './refs';
-
+import { onKeyPress, onBackdropClick } from './closeModal.js';
 refs.openRegisterForm.addEventListener('click', () => {
   refs.registerForm.classList.toggle('is-hidden');
 });
