@@ -51,16 +51,14 @@ export async function getFilmById(filmId) {
 
 
 // витянує трейлери для фільма по id
-
 export async function onfetchTrailers(filmId) {
+    Loading.dots();
     try {
-    //const url = `${BASE_URL}${filmId}/videos?api_key=${KEY}&language=en-US`;
-    //const response = await fetch(url);
-    const url = await axios.get(`${BASE_URL}movie/${filmId}/videos?api_key=${KEY}&language=en-US`);
-    //const data = response.data;
-    //return data;
-      return url.data;
+      const urlTrailers = await axios.get(`${BASE_URL}movie/${filmId}/videos?api_key=${KEY}&language=en-US`);
+      Loading.remove();
+      return urlTrailers.data;
     } catch (error) {
+      Loading.remove();
       console.log(error);
     }
 }
