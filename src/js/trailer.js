@@ -87,11 +87,12 @@ export default function onTrailerClick() {
 // add event listener 
 function watchTrailer(e) {
     e.preventDefault();
+
     if (e.target.closest('.card__link')?.querySelector('card__img') === undefined) {
         return;
     }
 
-    onfetchTrailers(e.target.closest('.card__link').filmId)
+    onfetchTrailers(e.target.closest('.card__link').id)
         .then(renderTrailer)
         .catch(error => {
             console.log(error);
@@ -99,8 +100,7 @@ function watchTrailer(e) {
     }
 
 // movie by ID /////
-//onfetchTrailers()
-
+// onfetchTrailers()
 // Render trailer modal card
 
 function renderTrailer(data) {
@@ -115,27 +115,28 @@ function renderTrailer(data) {
 
   // close trailer by Escape
     window.addEventListener('keydown', closeTrailerByEsc);
-    function closeTrailerByEsc(e) {
-        if (e.code === 'Escape') {
-            trailer.close();
-            window.removeEventListener('keydown', closeTrailerByEsc);
-        }
+}
+
+function closeTrailerByEsc(e) {
+    if (e.code === 'Escape') {
+        trailer.close();
+        window.removeEventListener('keydown', closeTrailerByEsc);
     }
 }
 
-// trailer key
+// trailer key link YouTube
 function creatTrailerLink(key) {
     trailer = basicLightbox.create(`
-        <div class="modal-trailer__backdrop">
-            <iframe class="iframe" width="640" height="480" frameborder="0" allowfullscreen allow='autoplay
-                src='https://www.youtube.com/embed/${key}?autoplay=1'>
-            </iframe>
-        </div> `);
+        <iframe width="320" height="240"
+        src='https://www.youtube.com/embed/${key}'
+        frameborder="0" allow="accelerometer; autoplay; 
+        encrypted-media; gyroscope; picture-in-picture" allowfullscreen class="trailer_video"></iframe>
+        `);
 
-    setTimeout(() => {
-        const trailerBtn = document.querySelector('.card-modal__banner');
-        trailerBtn.addEventListener('click', showTrailer);
-    }, 300);
+    //ad listener and time = 200
+    const trailerBtn = document.querySelector('.card-modal__banner');
+    trailerBtn.addEventListener('click', showTrailer);
+    
     
     // watch video
     function showTrailer() {

@@ -52,13 +52,10 @@ export async function getFilmById(filmId) {
 
 // витянує трейлери для фільма по id
 export async function onfetchTrailers(filmId) {
-    Loading.dots();
     try {
       const urlTrailers = await axios.get(`${BASE_URL}movie/${filmId}/videos?api_key=${KEY}&language=en-US`);
-      Loading.remove();
       return urlTrailers.data;
     } catch (error) {
-      Loading.remove();
       console.log(error);
     }
 }

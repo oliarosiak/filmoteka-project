@@ -1,6 +1,7 @@
 import { getFilmById } from './fetch';
 import { renderCardModalMurkup } from './cardModalMurkup';
 
+import onTrailerClick from './trailer';
 
 
 const openModal = document.querySelector('.film-list');
@@ -14,7 +15,7 @@ const buttonCloseModal = document.querySelector('.card-modal__button-close');
 // console.log(boxCardModal);
 
 openModal.addEventListener('click', openModalCard);
-buttonCloseModal.addEventListener("click",onCloseButtonClick);
+buttonCloseModal.addEventListener("click", onCloseButtonClick);
 
 function openModalCard(e) {
   const curLink = e.target.closest('.card__link');
@@ -35,6 +36,7 @@ function openModalCard(e) {
   backdropCardModal.classList.remove('is-hidden');
 }
 
+onTrailerClick();
 //-------- Кнопка закриття
 
 document.addEventListener('keydown', onEscBtnPress);
