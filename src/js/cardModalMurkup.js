@@ -29,19 +29,20 @@
 
 const boxCardModal = document.querySelector('.card-modal__container');
 
-export function renderCardModalMurkup({ 
-    poster_path,
-    original_title,
-    title,
-    name,
-    vote_average,
-    vote_count,
-    genres,
-    overview,
-    popularity,
-    id, }) {
-        const filmGenres = genres.map(({ name }) => name).join(', ');
-        return `<div class="card-modal__image-box">
+export function renderCardModalMurkup({
+  poster_path,
+  original_title,
+  title,
+  name,
+  vote_average,
+  vote_count,
+  genres,
+  overview,
+  popularity,
+  id,
+}) {
+  const filmGenres = genres.map(({ name }) => name).join(', ');
+  return `<div class="card-modal__image-box">
         <img class="card-modal__banner" src="https://image.tmdb.org/t/p/original${poster_path}" alt="">
         <button class='btn-trailer' type='button' aria-label='play movie trailer'> 
             <svg class='btn-trailer__svg' width='68' height='48' viewBox='0 0 68 48'> 
@@ -76,14 +77,9 @@ export function renderCardModalMurkup({
             <p class="card-modal__wrapper-value card-modal__wrapper-value--size">${filmGenres}</p>
         </div>
         <h3 class="card-modal__about-title">About</h3>
-        <p class="card-modal__about-text">${overview}</p> 
-        <div class="card-modal__button-box">
-                            <button type="button" class="card-modal__button-add card-modal__button-add--size ">add to watched</button>
-                            <button type="button" class="card-modal__button-add">add to queue</button>
-                            <!-- <button type="button" class="modal-film__play-btn">Play</button> -->
-                        </div>    
+        <p class="card-modal__about-text">${overview}</p>   
         </div>
         `;
-  
+
   console.log(data.original_title);
 }
