@@ -55,7 +55,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/lokshuk.jpg',
     firstName: 'Oleksandr',
     secondName: 'Lokshuk',
     position: 'Developer',
@@ -82,7 +82,7 @@ export const teamItems = [
   },
   {
     image:
-      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/default.jpg',
+      'https://raw.githubusercontent.com/oliarosiak/filmoteka-project/main/src/images/team/boliachevets.jpg',
     firstName: 'Oleksandr',
     secondName: 'Boliachevets',
     position: 'Developer',
