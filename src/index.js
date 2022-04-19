@@ -18,3 +18,4 @@ import './js/header-fixed';
 import './js/libraryRender';
 import './js/searchAlert';
 import './js/loading';
+import './js/themeToggler';
