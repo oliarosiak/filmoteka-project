@@ -168,10 +168,8 @@ header {
   .header__toggle--day-img{
     width: 24px;
     height: 24px;
-
     fill: $primary-accent-color;
-
-        transition: transform linear 500ms;
+    transition: transform linear 500ms;
   }
 
   .header__toggle:hover .header__toggle--day-img,
@@ -182,9 +180,7 @@ header {
   .header__toggle--night-img {
     width: 24px;
     height: 24px;
-    
     fill: $primary-accent-color;
-    
     transition: transform linear 500ms;
   }
     
