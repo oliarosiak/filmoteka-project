@@ -236,16 +236,21 @@ header {
     background-color: transparent;
      @include font(normal, 12px, 500, 16px, normal);
     color: $secondary-text-color;
+    transition: transform $primary-animation;
 
-
-        @media screen and (min-width: 768px) {
-          width: 152px;
-           height: 44px;
+    @media screen and (min-width: 768px) {
+      width: 152px;
+      height: 44px;
     }
   
     @media screen and (min-width: 1024px) {
       width: 147px;
       height: 42px;
+    }
+
+    &:hover,
+    &:focus {
+      transform: scale(1.02);
     }
   }
 
