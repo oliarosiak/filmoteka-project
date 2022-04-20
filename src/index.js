@@ -8,7 +8,7 @@ import './js/fetch';
 import './js/render-сard'; // HV
 // import './js/renderCard'; // HV
 import './js/cardModal';
-import './js/realtimaDataBase';
+// import './js/realtimaDataBase';
 import './js/fetch';
 import './js/trailer';
 import './js/scroll-btn';
