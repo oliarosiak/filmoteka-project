@@ -1,5 +1,4 @@
 .card-modal {
-   
     position: fixed;
     top: 5%;
     left: 50%;
@@ -11,42 +10,29 @@
     opacity $primary-animation;
     background-color: $primary-background-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-
-    
-
     @media screen and (min-width: 320px) {
         width: 280px;
     }
-
     @media screen and (min-width: 768px) {
         top: 20%;
         width: 704px;
-        height: 68vh;
-       
+        height: 68vh; 
     }
-
     @media screen and (min-width: 1024px) {
         top: 10%;
         width: 814px;
-        height: 78vh;
-       
+        height: 78vh;  
     }
 }
 
 .card-modal__button-close {
     position: absolute;
-
     top: 8px;
     right: 8px;
-    
     width: 30px;
-    height: 30px;
-    
+    height: 30px; 
     background-color: transparent;
-
-
     transition: fill $primary-animation;
-
     &:hover,
     &:focus {
         fill: $primary-accent-color;
@@ -54,30 +40,23 @@
 }
 
 .card-modal__container {
-   
     padding-top: 48px;
     padding-left: 20px;
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
     padding-right: 20px;
-    
-    
-
     @media screen and (min-width: 768px) {
         display: flex;
         padding-top: 48px;
         padding-left: 20px;
-        padding-bottom: 40px;
+        // padding-bottom: 40px;
         padding-right: 20px;
     }
-
-    @media screen and (min-width: 1024px) {
-        
+    @media screen and (min-width: 1024px) {  
         padding-top: 40px;
         padding-left: 16px;
         padding-bottom: 40px;
         padding-right: 16px;
     }
-
 }
 
 .card-modal__image-box {
@@ -92,14 +71,15 @@
         width: 375px;
     height: 478px;
     }
-  
 }
+
 .card-modal__banner {
     height: 100%;
     width: 100%;
     object-fit: cover;
     border-radius: 5px;
 }
+
 .card-modal__information-box {
     margin-top: 20px;
     width: 240px;
@@ -114,17 +94,17 @@
         
     }
 }
+
 .card-modal__title {
     margin-bottom: 20px;
     @include font(normal, 20px, 500, 23px, normal);
     text-transform: uppercase;
-
-    
     @media screen and (min-width: 1024px) {
         @include font(normal, 30px, 500, 35px, normal);
         
     }
 }
+
 .card-modal__wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -139,13 +119,16 @@
     @include font(normal, 12px, 500, 16px, normal);
     color:$additional-text-color;
 }
+
 .card-modal__wrapper-value {
     @include font(normal, 12px, 500, 14px, normal);
     text-transform: uppercase;
 }
+
 .card-modal__wrapper-value--size {
     text-transform: none; 
 }
+
 .card-modal__wrapper-value--color {
     background-color:$secondary-accent-color;
     color: $secondary-text-color;
@@ -155,50 +138,51 @@
     padding-right: 10px;
     border-radius: 5px;
 }
+
 .card-modal__about-title {
     margin-top: 20px;
     margin-bottom: 8px;
     text-transform: uppercase;
     @include font(normal, 12px, 500, 16px, normal);
 }
+
 .card-modal__about-text {
     @include font(normal, 12px, 500, 20px, normal);
     
 }
+
 .card-modal__button-box {
     margin-top: 20px;
-    display: flex;
-
-    
+    display: flex;  
+    padding-left: 20px; 
+    padding-bottom: 40px;
+    @media screen and (min-width: 768px) {
+    padding-left: 350px; 
+    }
+    @media screen and (min-width: 1024px) {
+            position: absolute;
+            left: 50px;
+        bottom: -120px;   
+        }
 }
+
 .card-modal__button-add--size {
-    
-    
-    
     margin-right: 20px;
     padding: 6px 27px 6px 27px;
-    
-    
-
-    
     @media screen and (min-width: 768px) {
-        padding: 0px;
-        
-    }
-    
+        padding: 0px; 
+    } 
 }
+
 .card-modal__button-add {
     width: 110px;
     height: 44px;
     @include font(normal, 12px, 500, 16px, normal);
-    
     border: 1px solid $primary-text-color;
     background-color:$secondary-text-color;
-
     text-align: center;
     text-transform: uppercase;
     border-radius: 5px;
-
     transition: background-color  $primary-animation, color $primary-animation;
     &:hover,
     &:focus {
@@ -211,8 +195,7 @@
     }
     @media screen and (min-width: 1024px) {
         width: 136px;
-    }
-    
+    } 
 }
 
 
