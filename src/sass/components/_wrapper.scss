@@ -12,14 +12,8 @@
         color: $secondary-text-color;
     }
     & .tui-page-btn {
-        background: linear-gradient(117deg, rgb(226, 222, 222) 30%, rgb(156, 156, 154) 70%);
+        background-color: $primary-background-color;
         border-radius: 5px;
-    }
-    & .modal-team,
-    & .card-modal {
-        background: linear-gradient(117deg, rgb(226, 222, 222) 30%, rgb(156, 156, 154) 70%);
-    }
-    & .card-modal__button-add {
-    background-color: transparent;
+        transform: scale(0.97);
     }
 }
