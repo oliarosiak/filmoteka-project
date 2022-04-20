@@ -8,9 +8,10 @@ function watchedRender() {
   clearRender();
   const watched = JSON.parse(localStorage.getItem('UserFilmWatched'));
 
-  watched.length <= 20
-    ? container.classList.add('is-hidden')
-    : container.classList.remove('is-hidden');
+  // watched.length <= 20
+  //   ? container.classList.add('is-hidden')
+  //   : container.classList.remove('is-hidden');
+  container.classList.add('is-hidden');
 
   renderCardMurkupLibreary(watched);
 }
