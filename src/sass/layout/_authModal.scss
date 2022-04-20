@@ -1,8 +1,8 @@
 .registerModal__closebtn,
 .signInModal__closebtn {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 5px;
+  right: 5px;
   width: 25px;
   height: 25px;
   display: flex;
@@ -13,7 +13,9 @@
   background-color: $primary-background-color;
   cursor: pointer;
   padding: 0;
-  &:focus {
+
+  &:focus,
+  &:hover {
     fill: $primary-accent-color;
   }
 }
@@ -54,7 +56,10 @@
   border: 0;
   color: white;
   background: $primary-accent-color;
-  transition: 0.3s;
+  transition:0.3s;
+
+  @include font(normal, 16px, 400, 10px, normal);
+  text-transform: uppercase;
 
   &:hover {
     background: darken($primary-accent-color, 5%);
