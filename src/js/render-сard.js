@@ -44,6 +44,8 @@ export function renderCardMurkup(data) {
 export function renderCardMurkupLibreary(data) {
   const galleryMarkupLibreary = data
     .map(({ id, poster_path, title, genres, release_date, vote_average }) => {
+      genres = genres.map((genre) => genre.name);
+      console.log(genres);
       title = title.length > 37 ? `${title.slice(0, 40)}...` : title;
       const imgUrl = poster_path === null ? BASE_IMG_NO_POSTER : `${BASE_IMG_URL}${poster_path}`;
       return `<li class="card">
@@ -52,9 +54,9 @@ export function renderCardMurkupLibreary(data) {
                         <div class="card__information">
                             <h2 class="card__name">${title}</h2>
                             <div class="card__inf">   
-                            <p class="card__genre">${genres.name}</p>
+                            <p class="card__genre">${genres}</p>
                             ${
-                              genres.name && release_date
+                              genres && release_date
                                 ? `<p class="card__genre">&nbsp;|&nbsp;</p>`
                                 : ''
                             }
@@ -71,3 +73,4 @@ export function renderCardMurkupLibreary(data) {
     .join('');
   refs.homeFilmList.insertAdjacentHTML('beforeend', galleryMarkupLibreary);
 }
+
