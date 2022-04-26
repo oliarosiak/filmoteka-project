@@ -6,11 +6,5 @@ body {
 }
 
 main {
-    margin-bottom: 100px;
-    @media screen and (min-width: 768px) {
-        margin-bottom: 79px;
-    }
-    @media screen and (min-width: 1024px) {
-        margin-bottom: 77px;
-    }
+    flex-grow: 1;
 }
